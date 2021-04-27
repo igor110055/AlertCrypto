@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import classNames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { Ripple } from 'primereact/ripple';
 
 const AppSubmenu = (props) => {
 
-    const [activeIndex, setActiveIndex] = useState(null)
+    const [activeIndex, setActiveIndex] = useState(null);
 
     const onMenuItemClick = (event, item, index) => {
         if (item.disabled) {
@@ -56,18 +56,18 @@ const AppSubmenu = (props) => {
             }
         }
         return null;
-    }
+    };
+
     const removeClass = (element, className) => {
         if (element.classList)
             element.classList.remove(className);
         else
             element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    }
+    };
 
     const onMenuItemMouseEnter = (index) => {
         if (props.root && props.menuActive && isHorizontalOrSlim() && !isMobile()) {
-            console.log(index)
-            setActiveIndex(index)
+            setActiveIndex(index);
         }
     };
 
@@ -78,10 +78,7 @@ const AppSubmenu = (props) => {
     const isHorizontalOrSlim = useCallback(() => {
         return (props.menuMode === 'horizontal' || props.menuMode === 'slim');
     }, [props.menuMode]);
-
-    const isSlim = useCallback(() => {
-        return props.menuMode === 'slim';
-    }, [props.menuMode]);
+    
 
     const visible = (item) => {
         return typeof item.visible === "function" ? item.visible() : item.visible !== false;
@@ -115,10 +112,6 @@ const AppSubmenu = (props) => {
         return <NavLink to={item.to} exact activeClassName="active-route" {...commonLinkProps}>{content}</NavLink>;
     };
 
-    // const isMenuActive = (item, index) => {
-    //     return item.items && (props.root && (!isSlim() || (isSlim() && (props.mobileMenuActive || activeIndex !== null))) ? true : activeIndex === index);
-    // }
-
     const getItems = () => {
         const transitionTimeout = isHorizontalOrSlim() && !props.root ? { enter: 1000, exit: 450} : (isHorizontalOrSlim() ? 0 : { enter: 1000, exit: 450 });
         return props.items.map((item, i) => {
@@ -148,14 +141,10 @@ const AppSubmenu = (props) => {
     };
 
     useEffect(() => {
-        console.log(activeIndex)
-    },[activeIndex])
-
-    useEffect(() => {
         if (props.resetActiveIndex && isHorizontalOrSlim()) {
-            setActiveIndex(null)
+            setActiveIndex(null);
         }
-    }, [props.resetActiveIndex])
+    }, [props.resetActiveIndex, isHorizontalOrSlim]);
 
     useEffect(() => {
         if (!props.menuActive && isHorizontalOrSlim()) {
@@ -177,11 +166,13 @@ const AppSubmenu = (props) => {
 
 const AppMenu = (props) => {
 
+    const history = useHistory();
+
     const onSidebarMouseOver = () => {
         if (props.menuMode === "sidebar" && !props.sidebarStatic) {
             props.onSidebarMouseOver()
         }
-    }
+    };
 
     const onSidebarMouseLeave = () => {
         if (props.menuMode === "sidebar" && !props.sidebarStatic) {
@@ -189,18 +180,18 @@ const AppMenu = (props) => {
                 props.onSidebarMouseLeave()
             }, 250);
         }
-    }
+    };
 
     return (
         <div className={classNames('menu-wrapper', { 'layout-sidebar-active': props.sidebarActive })}
             onClick={props.onMenuClick} onMouseOver={onSidebarMouseOver} onMouseLeave={onSidebarMouseLeave}>
             <div className="sidebar-logo">
-                <a>
+                <button className="p-link"  onClick={() => history.push('/')}>
                     <img src="assets/layout/images/logo-freya-single.svg" alt="freya-layout" />
-                </a>
-                <a className="sidebar-pin" onClick={(event) => props.onToggleMenu(event)}>
+                </button>
+                <button className="sidebar-pin p-link" onClick={(event) => props.onToggleMenu(event)}>
                     <span className="pin"></span>
-                </a>
+                </button>
             </div>
 
             <div className="layout-menu-container">

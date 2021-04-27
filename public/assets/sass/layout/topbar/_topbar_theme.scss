@@ -19,7 +19,7 @@
         .layout-topbar-right {
             .layout-topbar-actions {
                 > li {
-                    > a {
+                    > a, > button {
                         > .topbar-icon {
                             color: $topbarItemTextColor;
                         }
@@ -71,7 +71,7 @@
                         }
 
                         > li {
-                            > a {
+                            > a, button {
                                 color: $topbarItemSubmenuTextColor;
 
                                 i {

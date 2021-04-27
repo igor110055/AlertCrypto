@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'primereact/button';
 import { useHistory } from 'react-router-dom';
 
 export const Access = (props) => {

@@ -116,7 +116,7 @@
                             > li {
                                 &.active-topmenuitem {
                                     &.search-item {
-                                        a {
+                                        a,button {
                                             display: block;
                                         }
                                         >.search-input-wrapper{

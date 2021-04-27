@@ -7,7 +7,7 @@ export const Error = (props) => {
 	return (
 		<div className="exception-body error">
 			<div className="exception-topbar">
-				<button id="logolink" onClick={history.push('/')} className="layout-topbar-logo p-link">
+				<button id="logolink" onClick={() => history.push('/')} className="layout-topbar-logo p-link">
 					<img src={`assets/layout/images/logo-${props.colorScheme === 'dark' ? 'freya-white' : 'freya'}.svg`} alt="freya-layout" />
 				</button>
 			</div>

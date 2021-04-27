@@ -21,7 +21,7 @@ body {
 
 }
 
-a {
+a, button {
     text-decoration: none;
     color: lighten($primaryColor, 10%);
     color: var(--primary-color);

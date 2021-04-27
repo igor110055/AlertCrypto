@@ -3,11 +3,13 @@ import { Button } from 'primereact/button';
 import { useHistory } from 'react-router-dom';
 
 export const NotFound = (props) => {
-	const history = useHistory();
 
+	const history = useHistory();
+	
 	const goDashboard = () => {
 		history.push('/')
 	}
+
 
 	return (
 		<div className="exception-body notfound">

@@ -18,12 +18,12 @@ const AppConfig = (props) => {
 
 	useEffect(() => {
 		changeColorScheme(props.colorScheme)
-	},[])
+	},[]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const changeTheme = (theme) => {
 		props.onThemeChange(theme)
 		changeStyleSheetsColor('theme-css', theme, 2);
-	}
+	};
 	
 	const changeColorScheme = (scheme) => {
         changeStyleSheetsColor('layout-css', 'layout-' + scheme + '.css', 1);
@@ -33,7 +33,7 @@ const AppConfig = (props) => {
 		props.onMenuSchemeChange(scheme);
 		props.onTopbarSchemeChange(scheme);
 		props.onThemeSchemeChange(scheme);
-    }
+    };
 
     const changeStyleSheetsColor = (id, value, from) => {
         const element = document.getElementById(id);
@@ -48,7 +48,7 @@ const AppConfig = (props) => {
         const newURL = urlTokens.join('/');
 
         replaceLink(element, newURL);
-    }
+    };
 
     const replaceLink = (linkElement, href) => {
         if (isIE()) {
@@ -67,14 +67,13 @@ const AppConfig = (props) => {
                 cloneLinkElement.setAttribute('id', id);
             });
         }
-    }
+    };
 
-     const isIE = () => {
+    const isIE = () => {
         return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
-    }
+    };
 
 	const getThemes = () => {
-
 		return (
 			<div className="layout-themes">
 				{
@@ -88,15 +87,14 @@ const AppConfig = (props) => {
 				}
 			</div>
 		)
-
-	}
+	};
 
 	const themeColors = getThemes();
 	const configClassName = classNames('layout-config', { 'layout-config-active': props.configActive });
 
 	return (
 		<div id="layout-config">
-			<a id="layout-config-button" className="layout-config-button " onClick={props.onConfigButtonClick}>
+			<a id="layout-config-button" className="layout-config-button" onClick={props.onConfigButtonClick}>
 				<i className="pi pi-cog"></i>
 			</a>
 

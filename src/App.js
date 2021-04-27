@@ -48,7 +48,7 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
 
-const App = () => {
+const App = (props) => {
 
     const [resetActiveIndex, setResetActiveIndex] = useState(null)
     const [staticMenuMobileActive, setStaticMenuMobileActive] = useState(false);
@@ -183,23 +183,32 @@ const App = () => {
     let topbarUserMenuClick;
 
     useEffect(() => {
-        onColorSchemeChange(colorScheme)
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+        if (staticMenuMobileActive) {
+            blockBodyScroll();
+        }
+        else {
+            unblockBodyScroll();
+        }
+    }, [staticMenuMobileActive]);
+
+    useEffect(() => {
+        setResetActiveIndex(true)
+        setMenuActive(false)
+    }, [menuMode])
 
     const onMenuItemClick = (event) => {
         if (!event.item.items) {
             setResetActiveIndex(true)
             hideOverlayMenu();
         }
-        if (!event.item.items && isSlim()) {
+        if (!event.item.items && (isSlim())) {
             setMenuActive(false);
         }
     };
 
     const onMenuClick = (event) => {
-        if(isHorizontal()) {
+        if (menuActive && event.target.className === 'layout-menu-container') {
             setResetActiveIndex(true);
-            menuClick = false;
             setMenuActive(false)
         }
         menuClick = true;
@@ -211,6 +220,7 @@ const App = () => {
 
     const onColorSchemeChange = (scheme) => {
         setColorScheme(scheme);
+        props.setColorScheme(scheme)
     };
 
     const onThemeSchemeChange = (scheme) => {
@@ -264,15 +274,11 @@ const App = () => {
             }
         }
         event.preventDefault();
-    }
-
-    const isDesktop = () => {
-        return window.innerWidth > 991;
-    }
+    };
 
     const isMobile = () => {
         return window.innerWidth <= 991;
-    }
+    };
 
     const isHorizontal = () => {
         return menuMode === 'horizontal';
@@ -294,7 +300,7 @@ const App = () => {
     const onRightPanelButtonClick = () => {
         setRightPanelActive((prevState) => !prevState)
         rightPanelClick = true;
-    }
+    };
 
     const onConfigClick = () => {
         configClick = true;
@@ -308,27 +314,16 @@ const App = () => {
     const onTopbarSearchToggle = () => {
         setSearchActive(prevState => !prevState);
         searchClick = true;
-    }
+    };
 
     const onTopbarSearchClick = () => {
         searchClick = true
-    }
+    };
 
     const onTopbarUserMenuClick = () => {
         setTopbarUserMenuActive(prevState => !prevState);
         topbarUserMenuClick = true;
-    }
-
-    useEffect(() => {
-        if (staticMenuMobileActive) {
-            blockBodyScroll();
-        }
-        else {
-            unblockBodyScroll();
-        }
-    }, [staticMenuMobileActive]);
-
-
+    };
 
     const onInputStyleChange = (inputStyle) => {
         setInputStyle(inputStyle);
@@ -359,7 +354,7 @@ const App = () => {
         }
 
         if (!menuClick) {
-            if (isSlim() || isHorizontal()) {   
+            if (isSlim() || isHorizontal()) {
                 setResetActiveIndex(true)
                 setMenuActive(false)
             }
@@ -371,35 +366,27 @@ const App = () => {
             unblockBodyScroll();
         }
 
-        
-
         searchClick = false;
         topbarUserMenuClick = false;
         rightPanelClick = false;
         configClick = false;
         menuClick = false;
     };
-    
-    useEffect(() => {
-        setResetActiveIndex(true)
-        setMenuActive(false)
-    },[menuMode])
-
 
     const onSidebarMouseOver = () => {
         setSidebarActive(!isMobile());
-    }
+    };
 
     const onSidebarMouseLeave = () => {
         setSidebarActive(false)
-    }
+    };
 
-    const onToggleMenu = (event) =>  {
+    const onToggleMenu = (event) => {
         menuClick = true;
         setSidebarStatic(prevState => !prevState);
 
         event.preventDefault();
-    }
+    };
 
     const onRootMenuItemClick = () => {
         setMenuActive(prevMenuActive => !prevMenuActive);
@@ -422,9 +409,8 @@ const App = () => {
             <AppTopbar topbarScheme={topbarScheme} onRightPanelButtonClick={onRightPanelButtonClick}
                 searchActive={searchActive} onTopbarSearchToggle={onTopbarSearchToggle} onTopbarSearchClick={onTopbarSearchClick}
                 topbarUserMenuActive={topbarUserMenuActive} onTopbarUserMenuClick={onTopbarUserMenuClick}
-
                 menu={menu} menuActive={menuActive} onRootMenuItemClick={onRootMenuItemClick} mobileMenuActive={staticMenuMobileActive}
-                onMenuItemClick={onMenuItemClick} menuMode={menuMode} 
+                onMenuItemClick={onMenuItemClick} menuMode={menuMode}
                 sidebarStatic={sidebarStatic} sidebarActive={sidebarActive} onSidebarMouseOver={onSidebarMouseOver} onSidebarMouseLeave={onSidebarMouseLeave}
                 onToggleMenu={onToggleMenu} onMenuButtonClick={onMenuButtonClick} resetActiveIndex={resetActiveIndex} onMenuClick={onMenuClick}
             />
@@ -442,44 +428,42 @@ const App = () => {
                 theme={theme} onThemeChange={onThemeChange}
             />
 
-
             <div className="layout-main">
                 <div className="layout-content">
-                        <Route path="/" exact component={Dashboard} />
-                        <Route path="/start/documentation" component={Documentation} />
-                        <Route path="/uikit/formlayout" component={FormLayoutDemo} />
-                        <Route path="/uikit/floatlabel" component={FloatLabelDemo} />
-                        <Route path="/uikit/input" component={InputDemo} />
-                        <Route path="/uikit/invalidstate" component={InvalidStateDemo} />
-                        <Route path="/uikit/button" component={ButtonDemo} />
-                        <Route path="/uikit/table" component={TableDemo} />
-                        <Route path="/uikit/list" component={ListDemo} />
-                        <Route path="/uikit/tree" component={TreeDemo} />
-                        <Route path="/uikit/panel" component={PanelDemo} />
-                        <Route path="/uikit/overlay" component={OverlayDemo} />
-                        <Route path="/uikit/menu" component={MenuDemo} />
-                        <Route path="/uikit/message" component={MessagesDemo} />
-                        <Route path="/uikit/media" component={MediaDemo} />
-                        <Route path="/uikit/file" component={FileDemo} />
-                        <Route path="/uikit/chart" component={ChartDemo} />
-                        <Route path="/uikit/misc" component={MiscDemo} />
-                        <Route path="/utilities/display" component={DisplayDemo} />
-                        <Route path="/utilities/elevation" component={ElevationDemo} />
-                        <Route path="/utilities/flexbox" component={FlexBoxDemo} />
-                        <Route path="/utilities/icons" component={IconsDemo} />
-                        <Route path="/utilities/widgets" component={Widgets} />
-                        <Route path="/utilities/grid" component={GridDemo} />
-                        <Route path="/utilities/spacing" component={SpacingDemo} />
-                        <Route path="/utilities/typography" component={TypographyDemo} />
-                        <Route path="/utilities/text" component={TextDemo} />
-                        <Route path="/pages/crud" component={CrudDemo} />
-                        <Route path="/pages/calendar" component={CalendarDemo} />
-                        <Route path="/pages/help" component={Help} />
-                        <Route path="/pages/invoice" component={Invoice} />
-                        <Route path="/pages/empty" component={EmptyPage} />
-                        <Route path="/pages/timeline" component={TimelineDemo} />
+                    <Route path="/" exact component={Dashboard} />
+                    <Route path="/start/documentation" component={Documentation} />
+                    <Route path="/uikit/formlayout" component={FormLayoutDemo} />
+                    <Route path="/uikit/floatlabel" component={FloatLabelDemo} />
+                    <Route path="/uikit/input" component={InputDemo} />
+                    <Route path="/uikit/invalidstate" component={InvalidStateDemo} />
+                    <Route path="/uikit/button" component={ButtonDemo} />
+                    <Route path="/uikit/table" component={TableDemo} />
+                    <Route path="/uikit/list" component={ListDemo} />
+                    <Route path="/uikit/tree" component={TreeDemo} />
+                    <Route path="/uikit/panel" component={PanelDemo} />
+                    <Route path="/uikit/overlay" component={OverlayDemo} />
+                    <Route path="/uikit/menu" component={MenuDemo} />
+                    <Route path="/uikit/message" component={MessagesDemo} />
+                    <Route path="/uikit/media" component={MediaDemo} />
+                    <Route path="/uikit/file" component={FileDemo} />
+                    <Route path="/uikit/chart" component={ChartDemo} />
+                    <Route path="/uikit/misc" component={MiscDemo} />
+                    <Route path="/utilities/display" component={DisplayDemo} />
+                    <Route path="/utilities/elevation" component={ElevationDemo} />
+                    <Route path="/utilities/flexbox" component={FlexBoxDemo} />
+                    <Route path="/utilities/icons" component={IconsDemo} />
+                    <Route path="/utilities/widgets" component={Widgets} />
+                    <Route path="/utilities/grid" component={GridDemo} />
+                    <Route path="/utilities/spacing" component={SpacingDemo} />
+                    <Route path="/utilities/typography" component={TypographyDemo} />
+                    <Route path="/utilities/text" component={TextDemo} />
+                    <Route path="/pages/crud" component={CrudDemo} />
+                    <Route path="/pages/calendar" component={CalendarDemo} />
+                    <Route path="/pages/help" component={Help} />
+                    <Route path="/pages/invoice" component={Invoice} />
+                    <Route path="/pages/empty" component={EmptyPage} />
+                    <Route path="/pages/timeline" component={TimelineDemo} />
                 </div>
-
 
                 <AppFooter />
             </div>

@@ -15,7 +15,7 @@ const AppFooter = () => {
                         <div className="p-col-6 ">
                             <span className="footer-menutitle">SITE MAP</span>
                             <ul>
-                                <li><a onClick={() => history.push('/')}>Dashboard</a></li>
+                                <li><button className="p-link" onClick={() => history.push('/')}>Dashboard</button></li>
                                 <li><button className="p-link" onClick={() => history.push('pages/crud')}>Crud</button></li>
                                 <li><button className="p-link" onClick={() => history.push('/pages/invoice')}>Invoice</button></li>
                                 <li><button className="p-link" onClick={() => history.push('/pages/help')}>Help</button></li>
@@ -27,7 +27,7 @@ const AppFooter = () => {
                                 <li><button className="p-link" onClick={() => history.push('/pages/calendar')}>Calendar</button></li>
                                 <li><button className="p-link" onClick={() => history.push('pages/widgets')}>Widgets</button></li>
                                 <li><button className="p-link" onClick={() => history.push('/documentation')}>Documentation</button></li>
-                                <li><button className="p-link" href="https://www.primefaces.org/store">Buy Now</button></li>
+                                <li><a href="https://www.primefaces.org/store">Buy Now</a></li>
                             </ul>
                         </div>
                     </div>

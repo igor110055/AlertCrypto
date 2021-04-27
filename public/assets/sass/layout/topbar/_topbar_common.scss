@@ -65,7 +65,7 @@
                     @include flex-center();
                     height: 100%;
 
-                    > a {
+                    > a, > button {
                         width: 100%;
                         padding: 6px;
 
@@ -112,7 +112,7 @@
                             list-style: none;
                             margin-bottom: 4px;
 
-                            > a {
+                            > a, > button {
                                 @include flex();
                                 @include flex-align-center();
                                 @include flex-justify-between();
@@ -138,7 +138,7 @@
                     }
 
                     &.search-item {
-                        a {
+                        a, button {
                             width: auto;
                             display: block;
                         }
@@ -171,7 +171,7 @@
                     }
 
                     &.user-profile {
-                        > a {
+                        > a, > button {
                             margin-left: 16px;
                             > img {
                                 height: 28px;
@@ -183,7 +183,7 @@
 
                     &.active-topmenuitem {
                         &.search-item {
-                            a {
+                            a, button {
                                 display: none;
                             }
                             .search-input-wrapper{
@@ -236,7 +236,7 @@
                     > li {
                         &.active-topmenuitem {
                             &.search-item {
-                                a {
+                                a, button {
                                     display: block;
                                 }
                                 >.search-input-wrapper{

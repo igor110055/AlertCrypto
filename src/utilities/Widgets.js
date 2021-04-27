@@ -122,7 +122,7 @@ export const Widgets = () => {
                             </div>
                             <div className="p-col-12">
                                 <div className="notification">
-                                    <h6>👋  Hello! Welcome to Hit! Before start please complete your profile to know you better. <a href="#">Profile settings <i className="pi pi-arrow-up"></i></a></h6>
+                                    <h6>👋  Hello! Welcome to Hit! Before start please complete your profile to know you better. <button className="p-link">Profile settings <i className="pi pi-arrow-up"></i></button></h6>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +209,7 @@ export const Widgets = () => {
                                     </div>
                                 </li>
                             </ul>
-                            <a href="#">Show all</a>
+                            <button className="p-link">Show all</button>
                             <Button type="button" label="Go to full stock page"></Button>
                         </div>
                     </div>
@@ -227,7 +227,7 @@ export const Widgets = () => {
                                     <span><span>2</span> London</span>
                                     <span className="status">22%</span>
                                 </div>
-                                <a href="#">See all</a>
+                                <button className="p-link">See all</button>
                             </div>
                         </div>
                     </div>
@@ -293,9 +293,6 @@ export const Widgets = () => {
                                     </div>
                                 </TabPanel>
                                 <TabPanel header={<><img src="assets/demo/images/rightpanel/profile-2.png" alt="freya-layout" /><span className="p-badge">1</span></>}>
-
-
-
                                     <div className="chat">
                                         <span className="fade"></span>
                                         <div className="chat-content">
@@ -493,7 +490,7 @@ export const Widgets = () => {
                                     </div>
                                 </li>
                             </ul>
-                            <a href="#">See all</a>
+                            <button className="p-link">See all</button>
                         </div>
                     </div>
 
@@ -513,7 +510,7 @@ export const Widgets = () => {
                                         <h6>Daily talks over Zoom w/ teamA</h6>
                                         <span>8:00 - 9:00</span>
                                     </div>
-                                    <a href="#">Join over Zoom</a>
+                                    <button className="p-link">Join over Zoom</button>
                                     <span>6 participiants (4 accepted)</span>
                                 </li>
                                 <li>
@@ -521,7 +518,7 @@ export const Widgets = () => {
                                         <h6>New Project Kick, v1</h6>
                                         <span>8:00 - 9:00</span>
                                     </div>
-                                    <a href="#">Join over Zoom</a>
+                                    <button className="p-link">Join over Zoom</button>
                                     <span>3 participiants (all accepted)</span>
                                 </li>
                                 <li>
@@ -529,11 +526,11 @@ export const Widgets = () => {
                                         <h6>Grooming btw TeamA and SR1E</h6>
                                         <span>8:00 - 9:00</span>
                                     </div>
-                                    <a href="#">Master room</a>
+                                    <button className="p-link">Master room</button>
                                     <span>12 participiants (11 accepted)</span>
                                 </li>
                             </ul>
-                            <a href="#">Go to full schedule</a>
+                            <button className="p-link">Go to full schedule</button>
                         </div>
                     </div>
                 </div>

@@ -101,7 +101,7 @@ export const Dashboard = () => {
             <div className="p-grid">
                 <div className="p-col-12">
                     <div className="notification">
-                        <h6>👋  Hello! Welcome to Hit! Before start please complete your profile to know you better. <a href="#">Profile settings <i className="pi pi-arrow-up"></i></a></h6>
+                        <h6>👋  Hello! Welcome to Hit! Before start please complete your profile to know you better. <button className="p-link">Profile settings <i className="pi pi-arrow-up"></i></button></h6>
                     </div>
                 </div>
 
@@ -214,7 +214,7 @@ export const Dashboard = () => {
                                 </div>
                             </li>
                         </ul>
-                        <a href="#">See all</a>
+                        <button className="p-link">See all</button>
                     </div>
                 </div>
 
@@ -234,25 +234,25 @@ export const Dashboard = () => {
                                         <p className="content">Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ercitation ullamco laboris nisi..</p>
                                         <div className="progress active">
                                             <span>Today</span>
-                                            <ProgressBar value={100} showValue={false}></ProgressBar>
+                                            <ProgressBar className="progressBar" value={100} showValue={false}></ProgressBar>
                                             <span>2100</span>
                                         </div>
                                         <div className="progress">
                                             <span>Fri</span>
-                                            <ProgressBar value={20} showValue={false}></ProgressBar>
+                                            <ProgressBar className="progressBar" value={20} showValue={false}></ProgressBar>
                                             <span>1100</span>
                                         </div>
                                         <div className="progress">
                                             <span>Thu</span>
-                                            <ProgressBar value={50} showValue={false}></ProgressBar>
+                                            <ProgressBar className="progressBar" value={50} showValue={false}></ProgressBar>
                                             <span>1203</span>
                                         </div>
                                         <div className="progress">
                                             <span>Wed</span>
-                                            <ProgressBar value={100} showValue={false}></ProgressBar>
+                                            <ProgressBar className="progressBar" value={100} showValue={false}></ProgressBar>
                                             <span>1316</span>
                                         </div>
-                                        <a href="#">More</a>
+                                        <button className="p-link">More</button>
                                     </div>
                                     <div className="p-col-12 p-xl-3">
                                         <div className="card-header">
@@ -286,7 +286,7 @@ export const Dashboard = () => {
                                                     <span className="status">11%</span>
                                                 </div>
                                             </div>
-                                            <a href="#">See all</a>
+                                            <button className="p-link">See all</button>
                                         </div>
                                     </div>
                                 </div>
@@ -341,7 +341,7 @@ export const Dashboard = () => {
                                     <span><span>2</span> 28% increase on thanks mes./w..</span>
                                     <span className="p-tag p-tag-success">UP!</span>
                                 </li>
-                                <a href="#">See all(4)</a>
+                                <button className="p-link">See all(4)</button>
                             </ul>
 
                         </div>
@@ -388,7 +388,7 @@ export const Dashboard = () => {
                             <img src="assets/demo/images/dashboard/avatar/avatar-7.png" alt="freya-layout" />
                             <div className="no-picture"><span>+18</span></div>
                         </div>
-                        <a href="#">See all teams</a>
+                        <button className="p-link">See all teams</button>
                     </div>
                 </div>
 
@@ -418,7 +418,7 @@ export const Dashboard = () => {
                                         <span><span>2</span> London</span>
                                         <span className="status">22%</span>
                                     </div>
-                                    <a href="#">See all</a>
+                                    <button className="p-link">See all</button>
                                 </div>
                             </div>
                         </div>
@@ -438,7 +438,7 @@ export const Dashboard = () => {
                                             <h6>Daily talks over Zoom w/ teamA</h6>
                                             <span>8:00 - 9:00</span>
                                         </div>
-                                        <a href="#">Join over Zoom</a>
+                                        <button className="p-link">Join over Zoom</button>
                                         <span>6 participiants (4 accepted)</span>
                                     </li>
                                     <li>
@@ -446,7 +446,7 @@ export const Dashboard = () => {
                                             <h6>New Project Kick, v1</h6>
                                             <span>8:00 - 9:00</span>
                                         </div>
-                                        <a href="#">Join over Zoom</a>
+                                        <button className="p-link">Join over Zoom</button>
                                         <span>3 participiants (all accepted)</span>
                                     </li>
                                     <li>
@@ -454,7 +454,7 @@ export const Dashboard = () => {
                                             <h6>Grooming btw TeamA and SR1E</h6>
                                             <span>8:00 - 9:00</span>
                                         </div>
-                                        <a href="#">Master room</a>
+                                        <button className="p-link">Master room</button>
                                         <span>12 participiants (11 accepted)</span>
                                     </li>
                                     <li>
@@ -462,11 +462,11 @@ export const Dashboard = () => {
                                             <h6>New Project Kick, v2</h6>
                                             <span>12:00 - 14:00</span>
                                         </div>
-                                        <a href="#">Master room</a>
+                                        <button className="p-link">Master room</button>
                                         <span>5 participiants (1 accepted)</span>
                                     </li>
                                 </ul>
-                                <a href="#">Go to full schedule</a>
+                                <button className="p-link">Go to full schedule</button>
                             </div>
                         </div>
                     </div>
@@ -603,7 +603,7 @@ export const Dashboard = () => {
                                         </div>
                                     </li>
                                 </ul>
-                                <a href="#">Show all</a>
+                                <button className="p-link">Show all</button>
                                 <Button type="button" label="Go to full stock page"></Button>
                             </div>
                         </div>
