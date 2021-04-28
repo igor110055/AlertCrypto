@@ -26,7 +26,7 @@
 
                         li {
                             &.active-menuitem {
-                                > a {
+                                > a, > button {
                                     i.layout-submenu-toggler {
                                         @include rotate(-180deg);
                                     }
@@ -43,7 +43,7 @@
                             .layout-menu-tooltip {
                                 display: none;
                             }
-                            a {
+                            a, button {
                                 margin: 0px;
                                 padding: 10px 5px;
                                 @include flex();

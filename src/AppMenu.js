@@ -30,10 +30,6 @@ const AppSubmenu = (props) => {
             });
         }
 
-        if (item.items) {
-            setActiveIndex(index === activeIndex ? null : index);
-        }
-
         else {
             if (props.menuMode !== 'sidebar') {
                 const ink = getInk(event.currentTarget);
@@ -42,6 +38,8 @@ const AppSubmenu = (props) => {
                 }
             }
         }
+
+        setActiveIndex(index === activeIndex ? null : index);
 
         props.onMenuItemClick({
             originalEvent: event,
@@ -106,7 +104,7 @@ const AppSubmenu = (props) => {
             return <a href={item.url} rel="noopener noreferrer" {...commonLinkProps}>{content}</a>
         }
         else if (!item.to) {
-            return <a type="button" {...commonLinkProps}>{content}</a>
+            return <button type="button" {...commonLinkProps}>{content}</button>
         }
 
         return <NavLink to={item.to} exact activeClassName="active-route" {...commonLinkProps}>{content}</NavLink>;

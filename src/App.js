@@ -85,6 +85,7 @@ const App = (props) => {
                 { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
                 { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/uikit/panel' },
                 { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/uikit/overlay' },
+                { label: 'Media', icon: "pi pi-fw pi-image", to: '/uikit/media' },
                 { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu' },
                 { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
                 { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },

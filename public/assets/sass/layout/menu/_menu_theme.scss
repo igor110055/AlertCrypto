@@ -5,7 +5,7 @@
     .layout-menu-container{
         .layout-menu {
             > li {
-                > a {
+                > a, > button {
                     color: $rootMenuItemTextColor;
 
                     &:hover {
@@ -24,7 +24,7 @@
                 }
 
                 &.active-menuitem {
-                    > a {
+                    > a, > button {
                         color: $primaryColor;
                         color: $activeRootMenuItemTextColor;
                         &::before {
@@ -38,14 +38,14 @@
                     > li {
                         &.active-menuitem {
                             background-color:$menuBgColor;
-                            > a {
+                            > a, > button {
                                 background-color: $menuBgColor;
                                 color: $primaryColor;
                                 color: $activeRootMenuItemTextColor;
                             }
                         }
 
-                        > a {
+                        > a, > button {
                             &.active-route {
                                 color: $primaryColor;
                                 color: $activeRootMenuItemTextColor;
@@ -57,7 +57,7 @@
                         }
                     }
                     li {
-                        a {
+                        a, > button {
                             color: $submenuItemTextColor;
                             &:hover {
                                 background-color: rgba($primaryColor,.2);
@@ -65,7 +65,7 @@
                             }
                         }
                         &.active-menuitem {
-                            > a {
+                            > a , > button {
                                 color: $primaryColor;
                                 color: $activeRootMenuItemTextColor;
                                 &::before {
@@ -84,7 +84,7 @@
 
 @mixin extrenalSubmenuitem {
     li {
-        > a {
+        > a, > button {
             color: $submenuItemTextColor;
 
             &:hover {
@@ -94,7 +94,7 @@
         }
 
         &.active-menuitem {
-            > a {
+            > a, > button {
                 color: $primaryColor;
                 color: $activeRootMenuItemTextColor;
             }
@@ -106,7 +106,7 @@
     .layout-menu-container {
         .layout-menu {
             > li {
-                > a {
+                > a, > button {
                     color: $rootMenuItemTextColor;
 
                     &:hover {
@@ -116,7 +116,7 @@
                 }
 
                 &.active-menuitem {
-                    > a {
+                    > a, > button {
                         color: $primaryColor;
                         color: $activeRootMenuItemTextColor;
                         &::before {
@@ -131,7 +131,7 @@
                         &.active-menuitem {
                             background-color: rgba($primaryColor,.2);
                             background-color: $submenuItemHoverBgColor;
-                            > a {
+                            > a, > button {
                                 background-color: rgba($primaryColor,.1);
                                 background-color: $submenuItemHoverBgColor;
                                 color: $rootMenuItemTextColor;
@@ -139,7 +139,7 @@
                         }
                     }
                     li {
-                        a {
+                        a, > button {
                             color: $submenuItemTextColor;
                             &:hover {
                                 background-color: rgba($primaryColor,.1);
@@ -147,11 +147,11 @@
                             }
                         }
                         &.active-menuitem {
-                            > a {
+                            > a, > button {
                                 color: $rootMenuItemTextColor;
                             }
                         }
-                        a {
+                        a, button {
                             &.active-route {
                                 background-color: rgba($primaryColor,.2);
                                 background-color: $slimActiveRootMenuItemBgColor;
@@ -195,7 +195,7 @@
             .layout-menu-container {
                 .layout-menu {
                     > li {
-                        > a {
+                        > a, > button {
                             color: $rootMenuItemTextColor;
 
                             &:hover {
@@ -204,7 +204,7 @@
                             }
                         }
                         &.active-menuitem {
-                            > a {
+                            > a, > button {
                                 background-color: rgba($primaryColor,.2);
                                 background-color: $slimActiveRootMenuItemBgColor;
                                 color: $slimActiveRootMenuItemTextColor;
@@ -227,7 +227,7 @@
                             @include extrenalSubmenuitem;
 
                             li {
-                                > a {
+                                > a, > button {
                                     &.active-route {
                                         background-color: rgba($primaryColor,.2);
                                         background-color: $slimActiveRootMenuItemBgColor;
@@ -270,7 +270,7 @@
 
                     > li {
                         &.active-menuitem {
-                            > a {
+                            > a, > button {
                                 background-color: rgba($primaryColor,.2);
                                 background-color: $slimActiveRootMenuItemBgColor;
                                 color: $primaryColor;
@@ -288,7 +288,7 @@
                             }
                         }
 
-                        > a {
+                        > a, > button {
                             &.active-route {
                                 background-color: rgba($primaryColor,.2);
                                 background-color: $slimActiveRootMenuItemBgColor;
@@ -313,7 +313,7 @@
                             @include extrenalSubmenuitem;
 
                             li {
-                                > a {
+                                > a, > button {
                                     &.active-route {
                                         background-color: rgba($primaryColor,.2);
                                         background-color: $slimActiveRootMenuItemBgColor;

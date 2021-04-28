@@ -46,7 +46,7 @@
                             position: relative;
                             padding: 10px 12px 10px 14px;
 
-                            > a {
+                            > a, > button {
                                 margin: 0px;
                                 padding: 6px;
                                 @include border-radius(12px);
@@ -100,7 +100,7 @@
                                 li {
                                     margin: 0;
                                     padding: 0;
-                                    > a {
+                                    > a, > button {
                                         justify-content:flex-start;
                                         padding: 10px 5px;
                                         > span {
@@ -122,7 +122,7 @@
                             }
 
                             &.active-menuitem {
-                                > a {
+                                > a, > button {
                                     &:hover + .layout-menu-tooltip {
                                         display: none;
                                     }
