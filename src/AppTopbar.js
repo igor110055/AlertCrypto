@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import { InputText } from 'primereact/inputtext';
 import AppMenu from './AppMenu';
@@ -7,6 +7,18 @@ import { useHistory } from 'react-router-dom';
 const AppTopbar = (props) => {
 
     const history = useHistory();
+    const searchPanelDesktop = useRef(null)
+    const searchPanelMobile = useRef(null)
+
+
+    useEffect(() => {
+        if (props.searchActive) {
+            if (window.innerWidth >= 576)
+                searchPanelDesktop.current.focus();
+            else
+                searchPanelMobile.current.focus();
+        }
+    }, [props.searchActive])
 
     const onInputKeydown = (event) => {
         const key = event.which;
@@ -39,14 +51,14 @@ const AppTopbar = (props) => {
                 <div className="layout-topbar-right">
                     <ul className="layout-topbar-actions">
                         <li className={classNames('topbar-item search-item', { 'active-topmenuitem': props.searchActive })}>
-                            <button className="p-link" tabIndex="0" style={{cursor: 'pointer'}} onClick={props.onTopbarSearchToggle}>
+                            <button className="p-link" tabIndex="0" style={{ cursor: 'pointer' }} onClick={props.onTopbarSearchToggle}>
                                 <i className="topbar-icon pi pi-search"></i>
                             </button>
 
                             <div className="search-input-wrapper" onClick={props.onTopbarSearchClick}>
                                 <span className="p-input-icon-left">
                                     <i className="pi pi-search"></i>
-                                    <InputText type="text" placeholder="Search..." onKeyDown={onInputKeydown} />
+                                    <InputText ref={searchPanelDesktop} type="text" placeholder="Search..." onKeyDown={onInputKeydown} />
                                 </span>
                             </div>
 
@@ -54,14 +66,14 @@ const AppTopbar = (props) => {
                                 <div className="search-input-wrapper p-fluid" style={{ width: '100%' }} onClick={props.onTopbarSearchClick} >
                                     <span className="p-input-icon-left">
                                         <i className="pi pi-search"></i>
-                                        <InputText type="text" placeholder="Search..." onKeyDown={onInputKeydown} />
+                                        <InputText ref={searchPanelMobile} type="text" placeholder="Search..." onKeyDown={onInputKeydown} />
                                     </span>
                                 </div>
                             </ul>
                         </li>
 
                         <li className={classNames('topbar-item user-profile', { 'active-topmenuitem fadeInDown': props.topbarUserMenuActive })}>
-                            <button className="p-link" style={{cursor: 'pointer'}} onClick={props.onTopbarUserMenuClick}>
+                            <button className="p-link" style={{ cursor: 'pointer' }} onClick={props.onTopbarUserMenuClick}>
                                 <img src="assets/layout/images/avatar-profilemenu.png" alt="freya-layout" />
                             </button>
                             <ul className="fadeInDown">
@@ -78,18 +90,18 @@ const AppTopbar = (props) => {
                                 <li>
                                     <button className="p-link">
                                         <span>Messages</span>
-                                     </button>
+                                    </button>
                                 </li>
                                 <li>
                                     <button className="p-link">
                                         <span>Notifications</span>
-                                     </button>
+                                    </button>
                                 </li>
                             </ul>
                         </li>
                     </ul>
 
-                    <button tabIndex="0" style={{cursor: 'pointer'}}  className="layout-rightpanel-button p-link" onClick={props.onRightPanelButtonClick}>
+                    <button tabIndex="0" style={{ cursor: 'pointer' }} className="layout-rightpanel-button p-link" onClick={props.onRightPanelButtonClick}>
                         <i className="pi pi-arrow-left"></i>
                     </button>
                 </div>

@@ -18,60 +18,60 @@ const AppConfig = (props) => {
 
 	useEffect(() => {
 		changeColorScheme(props.colorScheme)
-	},[]); // eslint-disable-line react-hooks/exhaustive-deps
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const changeTheme = (theme) => {
+	const changeTheme = (theme) => {
 		props.onThemeChange(theme)
 		changeStyleSheetsColor('theme-css', theme, 2);
 	};
-	
+
 	const changeColorScheme = (scheme) => {
-        changeStyleSheetsColor('layout-css', 'layout-' + scheme + '.css', 1);
-        changeStyleSheetsColor('theme-css', 'theme-' + scheme + '.css', 1);
+		changeStyleSheetsColor('layout-css', 'layout-' + scheme + '.css', 1);
+		changeStyleSheetsColor('theme-css', 'theme-' + scheme + '.css', 1);
 
 		props.onColorSchemeChange(scheme);
 		props.onMenuSchemeChange(scheme);
 		props.onTopbarSchemeChange(scheme);
 		props.onThemeSchemeChange(scheme);
-    };
+	};
 
-    const changeStyleSheetsColor = (id, value, from) => {
-        const element = document.getElementById(id);
-        const urlTokens = element.getAttribute('href').split('/');
+	const changeStyleSheetsColor = (id, value, from) => {
+		const element = document.getElementById(id);
+		const urlTokens = element.getAttribute('href').split('/');
 
-        if (from === 1) {           // which function invoked this function - change scheme
-            urlTokens[urlTokens.length - 1] = value;
-        } else if (from === 2) {       // which function invoked this function - change color
-            urlTokens[urlTokens.length - 2] = value;
-        }
+		if (from === 1) {           // which function invoked this function - change scheme
+			urlTokens[urlTokens.length - 1] = value;
+		} else if (from === 2) {       // which function invoked this function - change color
+			urlTokens[urlTokens.length - 2] = value;
+		}
 
-        const newURL = urlTokens.join('/');
+		const newURL = urlTokens.join('/');
 
-        replaceLink(element, newURL);
-    };
+		replaceLink(element, newURL);
+	};
 
-    const replaceLink = (linkElement, href) => {
-        if (isIE()) {
-            linkElement.setAttribute('href', href);
-        } else {
-            const id = linkElement.getAttribute('id');
-            const cloneLinkElement = linkElement.cloneNode(true);
+	const replaceLink = (linkElement, href) => {
+		if (isIE()) {
+			linkElement.setAttribute('href', href);
+		} else {
+			const id = linkElement.getAttribute('id');
+			const cloneLinkElement = linkElement.cloneNode(true);
 
-            cloneLinkElement.setAttribute('href', href);
-            cloneLinkElement.setAttribute('id', id + '-clone');
+			cloneLinkElement.setAttribute('href', href);
+			cloneLinkElement.setAttribute('id', id + '-clone');
 
-            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+			linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
 
-            cloneLinkElement.addEventListener('load', () => {
-                linkElement.remove();
-                cloneLinkElement.setAttribute('id', id);
-            });
-        }
-    };
+			cloneLinkElement.addEventListener('load', () => {
+				linkElement.remove();
+				cloneLinkElement.setAttribute('id', id);
+			});
+		}
+	};
 
-    const isIE = () => {
-        return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
-    };
+	const isIE = () => {
+		return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
+	};
 
 	const getThemes = () => {
 		return (
@@ -80,7 +80,11 @@ const AppConfig = (props) => {
 					themes.map(theme => {
 						return (
 							<div key={theme.name}>
-								<button type="button" className="p-link layout-config-option-color" style={{ cursor: 'pointer', 'backgroundColor': theme.color }} onClick={() => changeTheme(theme.name)} title={theme.name}></button>
+								<button type="button" className="p-link layout-config-option-color" style={{ cursor: 'pointer', 'backgroundColor': theme.color }} onClick={() => changeTheme(theme.name)} title={theme.name}>
+									{props.theme === theme.name && <span className="check p-d-flex p-ai-center p-jc-center">
+										<i className="pi pi-check" style={{ color: 'white' }}></i>
+									</span>}
+								</button>
 							</div>
 						)
 					})

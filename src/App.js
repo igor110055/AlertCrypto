@@ -79,7 +79,7 @@ const App = (props) => {
                 { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
                 { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
                 { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/uikit/invalidstate' },
-                { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button' },
+                { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', className: 'rotated-icon' },
                 { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
                 { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
                 { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
@@ -201,7 +201,7 @@ const App = (props) => {
             setResetActiveIndex(true)
             hideOverlayMenu();
         }
-        if (!event.item.items && (isSlim())) {
+        if (!event.item.items && (isSlim() || isHorizontal())) {
             setMenuActive(false);
         }
     };
@@ -215,7 +215,21 @@ const App = (props) => {
     }
 
     const onMenuModeChange = (menuMode) => {
-        setMenuMode(menuMode);
+        setMenuMode(menuMode)
+        if(menuMode === 'sidebar') { 
+            if(sidebarStatic) {
+                setSidebarActive(true)
+            }
+        }
+        else {
+            setSidebarActive(false)
+            if(topbarScheme !== menuScheme) {
+                setMenuScheme(topbarScheme)
+            }
+        } 
+        if(topbarScheme ==='dark') {
+            setThemeScheme('dark')
+        }
     };
 
     const onColorSchemeChange = (scheme) => {
@@ -459,7 +473,7 @@ const App = (props) => {
                     <Route path="/utilities/text" component={TextDemo} />
                     <Route path="/pages/crud" component={CrudDemo} />
                     <Route path="/pages/calendar" component={CalendarDemo} />
-                    <Route path="/pages/help" component={Help} />
+                    <Route path="/pages/help" render={() => <Help colorScheme={colorScheme} />} />
                     <Route path="/pages/invoice" component={Invoice} />
                     <Route path="/pages/empty" component={EmptyPage} />
                     <Route path="/pages/timeline" component={TimelineDemo} />

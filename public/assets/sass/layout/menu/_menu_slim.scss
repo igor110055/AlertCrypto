@@ -88,20 +88,32 @@
                                 left: 62px;
                                 min-width: 250px;
                                 max-height: 450px;
-                                padding: 10px;
+                                padding: 10px 10px 0;
                                 overflow: auto;
+
+                                &::after {
+                                    content: '';
+                                    display: block;
+                                    height: 10px;
+                                }
 
                                 li {
                                     margin: 0;
+                                    padding: 0;
                                     > a {
+                                        justify-content:flex-start;
                                         padding: 10px 5px;
                                         > span {
                                             visibility: visible;
+                                            display: block;
                                         }
                                         > i {
                                             &.layout-submenu-toggler {
                                                 visibility: visible;
                                             }
+                                        }
+                                        &:hover + .layout-menu-tooltip {
+                                            display: none;
                                         }
                                     }
                                     @include nested-submenu-indents(10, 2, 10);

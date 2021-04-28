@@ -25,8 +25,8 @@ const AppFooter = () => {
                             <span className="footer-menutitle"></span>
                             <ul>
                                 <li><button className="p-link" onClick={() => history.push('/pages/calendar')}>Calendar</button></li>
-                                <li><button className="p-link" onClick={() => history.push('pages/widgets')}>Widgets</button></li>
-                                <li><button className="p-link" onClick={() => history.push('/documentation')}>Documentation</button></li>
+                                <li><button className="p-link" onClick={() => history.push('/utilities/widgets')}>Widgets</button></li>
+                                <li><button className="p-link" onClick={() => history.push('/start/documentation')}>Documentation</button></li>
                                 <li><a href="https://www.primefaces.org/store">Buy Now</a></li>
                             </ul>
                         </div>

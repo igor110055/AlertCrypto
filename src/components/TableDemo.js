@@ -111,7 +111,6 @@ export const TableDemo = () => {
     };
 
     const representativeBodyTemplate = (data) => {
-        console.log(data.representative.image)
         return (
             <>
                 <span className="p-column-title">Representative</span>

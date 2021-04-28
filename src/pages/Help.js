@@ -2,7 +2,10 @@ import React from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 
-export const Help = () => {
+export const Help = (props) => {
+
+    const borderStyle = props.colorScheme === 'dark' ? { borderColor: '#545B67' } : { borderColor: '#dee2e6' };
+
     return (
         <div className="p-grid help-page">
             <div className="p-col-12">
@@ -21,7 +24,7 @@ export const Help = () => {
                 <div className="card">
                     <h4>General</h4>
                     <Accordion activeIndex={0}>
-                        <AccordionTab header="Header I" >
+                        <AccordionTab header="Header I">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -57,7 +60,7 @@ export const Help = () => {
                         </AccordionTab>
                     </Accordion>
                 </div>
-            </div >
+            </div>
 
 
             <div className="p-col-12 p-lg-6">
@@ -106,30 +109,33 @@ export const Help = () => {
                     <h4>Articles</h4>
                     <p>Recent articles from our team.</p>
                     <div className="blog-posts">
-                        <div className="blog-post">
+                        <div className="blog-post" style={borderStyle}>
                             <div className="blog-text">
-                                <h1>Building Revenue With Confidence</h1>
-                                <span>And avoiding failures</span>
+                                <h5>Building Revenue With Confidence</h5>
+                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+								minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
                             </div>
                             <div className="blog-profile">
                                 <img src="assets/demo/images/avatar/amyelsner.png" alt="apollo" />
                             </div>
                         </div>
 
-                        <div className="blog-post">
+                        <div className="blog-post" style={borderStyle}>
                             <div className="blog-text">
-                                <h1>Latest Marketing Trends</h1>
-                                <span>Don't miss out our tips</span>
+                                <h5>Latest Marketing Trends</h5>
+                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+								minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
                             </div>
                             <div className="blog-profile">
                                 <img src="assets/demo/images/avatar/annafali.png" alt="apollo" />
                             </div>
                         </div>
 
-                        <div className="blog-post">
+                        <div className="blog-post" style={borderStyle}>
                             <div className="blog-text">
-                                <h1>How To Reach Your Audience</h1>
-                                <span>10 ways to increase your efficiency</span>
+                                <h5>How To Reach Your Audience</h5>
+                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+								minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
                             </div>
                             <div className="blog-profile">
                                 <img src="assets/demo/images/avatar/stephenshaw.png" alt="apollo" />
@@ -139,6 +145,6 @@ export const Help = () => {
                 </div>
             </div>
 
-        </div >
+        </div>
     )
 }

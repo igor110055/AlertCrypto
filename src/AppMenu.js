@@ -96,7 +96,7 @@ const AppSubmenu = (props) => {
         );
         const commonLinkProps = {
             'style': item.style,
-            'className': classNames(item.class, 'p-ripple', { 'p-disabled': item.disabled, 'p-link': !item.to }),
+            'className': classNames(item.className, 'p-ripple', { 'p-disabled': item.disabled, 'p-link': !item.to }),
             'target': item.target,
             'onClick': (e) => onMenuItemClick(e, item, index),
             'onMouseEnter': () => onMenuItemMouseEnter(index)
@@ -113,7 +113,7 @@ const AppSubmenu = (props) => {
     };
 
     const getItems = () => {
-        const transitionTimeout = isHorizontalOrSlim() && !props.root ? { enter: 1000, exit: 450} : (isHorizontalOrSlim() ? 0 : { enter: 1000, exit: 450 });
+        const transitionTimeout = isHorizontalOrSlim() && !props.root ? { enter: 1000, exit: 450} : (isHorizontalOrSlim() && !isMobile() ? 0 : { enter: 1000, exit: 450 });
         return props.items.map((item, i) => {
             if (visible(item)) {
                 const menuitemClassName = classNames({ 'layout-root-menuitem': props.root, 'active-menuitem': activeIndex === i && !item.disabled });

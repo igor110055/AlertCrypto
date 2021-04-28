@@ -94,8 +94,8 @@ export const MessagesDemo = () => {
                     <h5>Help Text</h5>
                     <div className="p-field p-fluid">
                         <label htmlFor="username2">Username</label>
-                        <InputText id="username2" type="text" className="p-error" aria-describedby="username-help" />
-                        <small id="username-help" className="p-error">Enter your username to reset your password.</small>
+                        <InputText id="username2" type="text" className="p-invalid" aria-describedby="username-help" />
+                        <small id="username-help" className="p-invalid">Username is not available.</small>
                     </div>
                 </div>
             </div>
