@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Button } from 'primereact/button';
 import { RadioButton } from 'primereact/radiobutton';
 import { InputSwitch } from 'primereact/inputswitch';
 import classNames from 'classnames';
@@ -98,9 +99,7 @@ const AppConfig = (props) => {
 
 	return (
 		<div id="layout-config">
-			<a id="layout-config-button" className="layout-config-button" onClick={props.onConfigButtonClick}>
-				<i className="pi pi-cog"></i>
-			</a>
+			<Button className="p-link layout-config-button" icon="pi pi-cog" onClick={props.onConfigButtonClick}></Button>
 
 			<div className={configClassName} onClick={props.onConfigClick} >
 				<h5>Menu Type</h5>
