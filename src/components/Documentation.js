@@ -11,7 +11,7 @@ export const Documentation = () => {
                     <p>React 17.x and PrimeReact 6.x</p>
 
                     <h4>Getting Started</h4>
-                    <p>Roma is an application template for React, based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows
+                    <p>Freya is an application template for React, based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows
                             creating React apps with no configuration. To get started extract the contents of the zip bundle and install the dependencies
                             with npm or yarn.</p>
 <AppCodeHighlight>
@@ -40,80 +40,48 @@ export const Documentation = () => {
 </AppCodeHighlight>
 
                     <h4>Structure</h4>
-                    <p>Roma consists of 3 main parts; the application layout, layout resources and theme resources for PrimeReact components. <b>App.js</b> inside src folder is the main component containing the template for the base layout
+                    <p>Freya consists of 3 main parts; the application layout, layout resources and theme resources for PrimeReact components. <b>App.js</b> inside src folder is the main component containing the template for the base layout
                             whereas required resources for the layout are placed inside the <b>public/assets/layout</b> folder and similarly theme resources are inside <b>public/assets/theme</b> folder.
                         </p>
 
                     <h4>Template</h4>
-                    <p>Main layout is the JSX of the App.js, it is divided into a couple of child components such as topbar, profile, menu and footer. Here return of the
+                    <p>Main layout is the JSX of the App.js, it is divided into a couple of child components such as topbar, sidebar, right panel and footer. Here return of the
                     App.js component that implements the logic such as menu state, layout modes and so on.
                         </p>
 
 <AppCodeHighlight>
 {`
 <div className={layoutClassName} onClick={onDocumentClick}>
-    <AppTopbar topbarMenuActive={topbarMenuActive} activeTopbarItem={activeTopbarItem} inlineUser={inlineUser}
-        onRightMenuButtonClick={onRightMenuButtonClick} onMenuButtonClick={onMenuButtonClick}
-        onTopbarMenuButtonClick={onTopbarMenuButtonClick} onTopbarItemClick={onTopbarItemClick} />
 
-    <AppRightMenu rightPanelMenuActive={rightPanelMenuActive} onRightMenuClick={onRightMenuClick}></AppRightMenu>
+    <AppTopbar topbarScheme={topbarScheme} onRightPanelButtonClick={onRightPanelButtonClick}
+        searchActive={searchActive} onTopbarSearchToggle={onTopbarSearchToggle} onTopbarSearchClick={onTopbarSearchClick}
+        topbarUserMenuActive={topbarUserMenuActive} onTopbarUserMenuClick={onTopbarUserMenuClick}
+        menu={menu} menuActive={menuActive} onRootMenuItemClick={onRootMenuItemClick} mobileMenuActive={staticMenuMobileActive}
+        onMenuItemClick={onMenuItemClick} menuMode={menuMode}
+        sidebarStatic={sidebarStatic} sidebarActive={sidebarActive} onSidebarMouseOver={onSidebarMouseOver} onSidebarMouseLeave={onSidebarMouseLeave}
+        onToggleMenu={onToggleMenu} onMenuButtonClick={onMenuButtonClick} resetActiveIndex={resetActiveIndex} onMenuClick={onMenuClick} />
 
-    <div className="layout-menu-container" onClick={onMenuClick}>
-        {
-            inlineUser && (
-                <div className="layout-profile">
-                    <button type="button" className="p-link layout-profile-button" onClick={onInlineUserClick}>
-                        <img src="assets/layout/images/avatar.png" alt="roma-layout" />
-                        <div className="layout-profile-userinfo">
-                            <span className="layout-profile-name">Arlene Welch</span>
-                            <span className="layout-profile-role">Design Ops</span>
-                        </div>
-                    </button>
-                    <CSSTransition classNames="p-toggleable-content" timeout={inlineUserTimeout} in={inlineUserMenuActive} unmountOnExit>
-                        <ul className={classNames('layout-profile-menu', { 'profile-menu-active': inlineUserMenuActive })}>
-                            <li>
-                                <button type="button" className="p-link">
-                                    <i className="pi pi-fw pi-user"></i><span>Profile</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" className="p-link">
-                                    <i className="pi pi-fw pi-cog"></i><span>Settings</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" className="p-link">
-                                    <i className="pi pi-fw pi-envelope"></i><span>Messages</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" className="p-link">
-                                    <i className="pi pi-fw pi-bell"></i><span>Notifications</span>
-                                </button>
-                            </li>
-                        </ul>
-                    </CSSTransition>
-                </div>
-            )
-        }
-        <AppMenu model={menu} onMenuItemClick={onMenuItemClick} onRootMenuItemClick={onRootMenuItemClick} layoutMode={layoutMode} active={menuActive} mobileMenuActive={staticMenuMobileActive} />
-    </div>
+    <AppRightPanel onRightPanelClick={onRightPanelClick} />
+
+    <AppConfig configActive={configActive} onConfigButtonClick={onConfigButtonClick} onConfigClick={onConfigClick}
+        menuMode={menuMode} onMenuModeChange={onMenuModeChange}
+        ripple={ripple} onRippleChange={onRippleChange}
+        inputStyle={inputStyle} onInputStyleChange={onInputStyleChange}
+        colorScheme={colorScheme} onColorSchemeChange={onColorSchemeChange}
+        topbarScheme={topbarScheme} onTopbarSchemeChange={onTopbarSchemeChange}
+        menuScheme={menuScheme} onMenuSchemeChange={onMenuSchemeChange}
+        themeScheme={themeScheme} onThemeSchemeChange={onThemeSchemeChange}
+        theme={theme} onThemeChange={onThemeChange} />
 
     <div className="layout-main">
         <div className="layout-content">
             // routers
         </div>
 
-        <AppConfig configActive={configActive} onConfigClick={onConfigClick} onConfigButtonClick={onConfigButtonClick}
-            rippleActive={ripple} onRippleChange={onRippleChange} inputStyle={inputStyle} onInputStyleChange={onInputStyleChange}
-            theme={theme} onThemeChange={onThemeChange} topbarColor={topbarColor} onTopbarColorChange={onTopbarColorChange}
-            inlineUser={inlineUser} onProfileModeChange={onProfileModeChange} isRTL={isRTL} onOrientationChange={onOrientationChange}
-            layoutMode={layoutMode} onLayoutModeChange={onLayoutModeChange} lightMenu={lightMenu} onMenuColorChange={onMenuColorChange}></AppConfig>
-
         <AppFooter />
     </div>
 
-    <div className="layout-content-mask"></div>
+    <div className="layout-mask modal-in"></div>
 </div>
 `}
 </AppCodeHighlight>
@@ -126,93 +94,99 @@ export const Documentation = () => {
 <AppCodeHighlight lang="js">
 {`
 const menu = [
-
-    { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
     {
-        label: 'UI Kit', icon: 'pi pi-fw pi-sitemap',
+        label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'
+    },
+    {
+        label: 'UI Kit', icon: 'pi pi-fw pi-star-o',
         items: [
-            { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/formlayout' },
-            { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/input' },
-            { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/floatlabel' },
-            { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/button' },
-            { label: 'Table', icon: 'pi pi-fw pi-table', to: '/table' },
-            { label: 'List', icon: 'pi pi-fw pi-list', to: '/list' },
-            { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/tree' },
-            { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/panel' },
-            { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/overlay' },
-            { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/menu' },
-            { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/messages' },
-            { label: 'File', icon: 'pi pi-fw pi-file', to: '/file' },
-            { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/chart' },
-            { label: 'Misc', icon: 'pi pi-fw pi-circle-off', to: '/misc' },
+            { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
+            { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
+            { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
+            { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/uikit/invalidstate' },
+            { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', className: 'rotated-icon' },
+            { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
+            { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
+            { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
+            { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/uikit/panel' },
+            { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/uikit/overlay' },
+            { label: 'Media', icon: "pi pi-fw pi-image", to: '/uikit/media' },
+            { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu' },
+            { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
+            { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
+            { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/chart' },
+            { label: 'Misc', icon: 'pi pi-fw pi-circle-off', to: '/uikit/misc' },
         ]
     },
     {
-        label: 'Utilities', icon: 'pi pi-fw pi-globe',
+        label: 'Utilities', icon: 'pi pi-fw pi-compass',
         items: [
-            { label: 'Display', icon: 'pi pi-fw pi-desktop', to: '/display' },
-            { label: 'Elevation', icon: 'pi pi-fw pi-external-link', to: '/elevation' },
-            { label: 'Flexbox', icon: 'pi pi-fw pi-directions', to: '/flexbox' },
-            { label: 'Icons', icon: 'pi pi-fw pi-search', to: '/icons' },
-            { label: 'Widgets', icon: 'pi pi-fw pi-star-o', to: '/widgets' },
-            { label: 'Grid System', icon: 'pi pi-fw pi-th-large', to: '/grid' },
-            { label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', to: '/spacing' },
-            { label: 'Typography', icon: 'pi pi-fw pi-align-center', to: '/typography' },
-            { label: 'Text', icon: 'pi pi-fw pi-pencil', to: '/text' }
+            { label: 'Display', icon: 'pi pi-fw pi-desktop', to: '/utilities/display' },
+            { label: 'Elevation', icon: 'pi pi-fw pi-external-link', to: '/utilities/elevation' },
+            { label: 'Flexbox', icon: 'pi pi-fw pi-directions', to: '/utilities/flexbox' },
+            { label: 'Icons', icon: 'pi pi-fw pi-search', to: '/utilities/icons' },
+            { label: 'Widgets', icon: 'pi pi-fw pi-star-o', to: '/utilities/widgets' },
+            { label: 'Grid System', icon: 'pi pi-fw pi-th-large', to: '/utilities/grid' },
+            { label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', to: '/utilities/spacing' },
+            { label: 'Typography', icon: 'pi pi-fw pi-align-center', to: '/utilities/typography' },
+            { label: 'Text', icon: 'pi pi-fw pi-pencil', to: '/utilities/text' },
         ]
     },
     {
-        label: 'Pages', icon: 'pi pi-fw pi-copy',
+        label: 'Pages', icon: 'pi pi-fw pi-briefcase',
         items: [
-            { label: 'Crud', icon: 'pi pi-fw pi-pencil', to: '/crud' },
-            { label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', to: '/calendar' },
-            { label: 'Landing', icon: 'pi pi-fw pi-user-plus', command: () => window.open('assets/pages/landing.html', '_blank') },
+            { label: 'Crud', icon: 'pi pi-fw pi-pencil', to: '/pages/crud' },
+            { label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', to: '/pages/calendar' },
+            { label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/pages/timeline' },
+            { label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank' },
             { label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login' },
-            { label: 'Invoice', icon: 'pi pi-fw pi-dollar', to: '/invoice' },
-            { label: 'Help', icon: 'pi pi-fw pi-question-circle', to: '/help' },
+            { label: 'Invoice', icon: 'pi pi-fw pi-dollar', to: '/pages/invoice' },
+            { label: 'Help', icon: 'pi pi-fw pi-question-circle', to: '/pages/help' },
             { label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error' },
-            { label: 'Not Found', icon: 'pi pi-fw pi-exclamation-triangle', to: '/notfound' },
+            { label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound' },
             { label: 'Access Denied', icon: 'pi pi-fw pi-lock', to: '/access' },
-            { label: 'Empty Page', icon: 'pi pi-fw pi-circle-off', to: '/empty' }
-
+            { label: 'Empty Page', icon: 'pi pi-fw pi-circle-off', to: '/pages/empty' }
         ]
     },
     {
-        label: 'Hierarchy', icon: 'pi pi-fw pi-sitemap',
+        label: 'Hierarchy', icon: 'pi pi-fw pi-align-left',
         items: [
             {
-                label: 'Submenu 1', icon: 'pi pi-fw pi-sign-in',
+                label: 'Submenu 1', icon: 'pi pi-fw pi-align-left',
                 items: [
                     {
-                        label: 'Submenu 1.1', icon: 'pi pi-fw pi-sign-in',
+                        label: 'Submenu 1.1', icon: 'pi pi-fw pi-align-left',
                         items: [
-                            { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-sign-in' },
-                            { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-sign-in' },
-                            { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-sign-in' },
+                            { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-align-left' },
+                            { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-align-left' },
+                            { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-align-left' },
                         ]
                     },
                     {
-                        label: 'Submenu 1.2', icon: 'pi pi-fw pi-sign-in',
+                        label: 'Submenu 1.2', icon: 'pi pi-fw pi-align-left',
                         items: [
-                            { label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-sign-in' }
+                            { label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-align-left' },
+                            { label: 'Submenu 1.2.2', icon: 'pi pi-fw pi-align-left' }
                         ]
                     },
                 ]
             },
             {
-                label: 'Submenu 2', icon: 'pi pi-fw pi-sign-in',
+                label: 'Submenu 2', icon: 'pi pi-fw pi-align-left',
                 items: [
                     {
-                        label: 'Submenu 2.1', icon: 'pi pi-fw pi-sign-in',
+                        label: 'Submenu 2.1', icon: 'pi pi-fw pi-align-left',
                         items: [
-                            { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-sign-in' },
-                            { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-sign-in' },
+                            { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-align-left' },
+                            { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-align-left' },
+                            { label: 'Submenu 2.1.3', icon: 'pi pi-fw pi-align-left' },
                         ]
                     },
                     {
-                        label: 'Submenu 2.2', icon: 'pi pi-fw pi-sign-in',
+                        label: 'Submenu 2.2', icon: 'pi pi-fw pi-align-left',
                         items: [
-                            { label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-sign-in' },
+                            { label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-align-left' },
+                            { label: 'Submenu 2.2.2', icon: 'pi pi-fw pi-align-left' }
                         ]
                     },
                 ]
@@ -220,10 +194,11 @@ const menu = [
         ]
     },
     {
-        label: 'Docs', icon: 'pi pi-fw pi-file', to: '/documentation'
-    },
-    {
-        label: 'Buy Now', icon: 'pi pi-fw pi-money-bill', command: () => window.open('https://www.primefaces.org/store', '_blank')
+        label: 'Start', icon: 'pi pi-fw pi-download',
+        items: [
+            { label: 'Documentation', icon: 'pi pi-fw pi-question', to: '/start/documentation' },
+            { label: 'Buy Now', icon: 'pi pi-fw pi-shopping-cart', command: () => { window.location = "https://www.primefaces.org/store" } }
+        ]
     }
 ];
 `}
@@ -242,25 +217,26 @@ const menu = [
 </AppCodeHighlight>
 
                     <h4>Theme</h4>
-                    <p>Roma provides 15 PrimeReact themes out of the box, setup of a theme is simple as including the css of theme to your application. All themes are located inside are located inside public/assets/theme folder.</p>
+                    <p>Freya provides 16 PrimeReact themes out of the box, setup of a theme is simple as including the css of theme to your application. All themes are located inside are located inside public/assets/theme folder.</p>
 
                     <ul>
-                        <li>blue</li>
-                        <li>green</li>
-                        <li>orange</li>
-                        <li>magenta</li>
-                        <li>bluegrey</li>
-                        <li>deeppurple</li>
-                        <li>brown</li>
-                        <li>lime</li>
-                        <li>rose</li>
-                        <li>cyan</li>
-                        <li>teal</li>
-                        <li>deeporange</li>
-                        <li>indigo</li>
-                        <li>pink</li>
-                        <li>purple</li>
-                    </ul>
+                        <li>avocado-light</li>
+                        <li>avocado-dark</li>
+                        <li>blue-light</li>
+                        <li>blue-dark</li>
+                        <li>green-light</li>
+                        <li>green-dark</li>
+                        <li>orange-light</li>
+                        <li>orange-dark</li>
+                        <li>purple-light</li>
+                        <li>purple-dark</li>
+                        <li>red-light</li>
+                        <li>red-dark</li>
+                        <li>turquoise-light</li>
+                        <li>turquoise-dark</li>
+                        <li>yellow-light</li>
+                        <li>yellow-dark</li>
+				    </ul>
 
                     <p>A custom theme can be developed by the following steps.</p>
                     <ul>
@@ -276,16 +252,17 @@ const menu = [
 
 <AppCodeHighlight lang="scss">
 {`
-$primaryColor: #0f97c7 !default;
-$primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
-$primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
-$primaryDarkerColor: scale-color($primaryColor, $lightness: -20%) !default;
-$primaryTextColor: #ffffff !default;
+$primaryLightColor: #777BF1;
+$primaryColor:#464DF2;
+$primaryDarkColor: #221ED9;
+$primaryDarkerColor: #1222B9;
+$primaryTextColor: #FFFFFF;
+$primaryLighterColor: rgba($primaryLightColor,.1);
 
 $highlightBg: $primaryColor;
 $highlightTextColor: $primaryTextColor;
 
-@import '../sass/theme/_theme';
+@import '../../sass/theme/_theme_light';
 `}
 </AppCodeHighlight>
 
@@ -318,40 +295,102 @@ sass --watch public/assets:public/assets
 
 <AppCodeHighlight>
 {`
-$primaryColor:#0f97c7;
-$primaryTextColor:#ffffff;
-$primaryLightestColor:#2ed7e4;
-
-@import '../../sass/layout/_layout';
+@import '../../sass/layout/_layout_light';
 `}
 </AppCodeHighlight>
+                    <h4>SASS Variables</h4>
+                    <p>Both the theme and layout provides various variables to customize the design.</p>
 
-                    <h4>Common SASS Variables</h4>
-                    <p>In case you'd like to customize the shared variables, the _variables.scss files are where the options are defined for layout and theme.</p>
+                    <h5>sass/variables/layout/_layout_common.scss</h5>
+                    <p>Common variables for light and dark application layout.</p>
+<AppCodeHighlight>
+{`
+//general
+$fontSize:14px !default;
+$fontFamily:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$mobileBreakpoint:991px !default;
+$borderRadius:24px !default;
+$animationDuration:.2s !default;
+$animationTimingFunction:cubic-bezier(.05,.74,.2,.99) !default;
+$letterSpacing:0.02em !default;
+$transitionDuration:.2s !default;
+$tabletBreakpoint:991px !default;
+$phoneBreakpoint:576px !default;
+`}
+</AppCodeHighlight>
+                <h5>sass/variables/layout/_layout_light.scss</h5>
+				<p>Variables of the light theme layout.</p>
+<AppCodeHighlight>
+{`
+$bodyBgColor:#F2F4F6  !default;
+$dividerColor:#dee2e6 !default;
+$textSecondaryColor:#6c757d !default;
+$overlayBorder:0 none !default;
+$overlayShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
 
-                    <h6>sass/_variables.scss</h6>
-<div style={{ height: '400px', overflow: 'auto'}}>
+//text
+$textShade100:#3E4754 !default;
+$textShade200:rgba(41, 50, 65, 0.8) !default;
+$textShade300:rgba(41, 50, 65, 0.5) !default;
+
+//content
+$contentShade100:#ffffff !default;
+$contentShade200: #F7FAFF !default;
+$contentShade300: #EEF5FF !default;
+$contentShade400: #F7F7F8 !default;
+$dividerColor: #D4D6D9 !default;
+//accent
+$accentColor: #1976D2 !default;
+$accentTextColor: #ffffff !default;
+
+$menuTooltipBgColor:#293241!default;
+$menuTooltipTextColor:#ffffff !default;
+
+//sidebar right
+$rightSidebarWidth: 16rem !default;
+$rightSidebarBg: #ffffff !default;
+
+@import './_layout_common.scss';
+`}
+</AppCodeHighlight>
+                    <h5>sass/variables/theme/_theme_light.scss</h5>
+                    <p>Variables of the light component theme, see the <a href="https://www.primefaces.org/designer/api/primereact/6.0.0/">Theme Designer API</a> for documentation.</p>
+
+<div style={{height: '400px', overflow: 'auto'}}>
 <AppCodeHighlight lang="scss">
 {`
+$colors: (
+    "blue": #2196F3,
+    "green": #4caf50,
+    "yellow": #FBC02D,
+    "cyan": #00BCD4,
+    "pink": #E91E63,
+    "indigo": #3F51B5,
+    "teal": #009688,
+    "orange": #F57C00,
+    "bluegray": #607D8B,
+    "purple": #9C27B0
+);
+
 //reused color variables
 $shade000:#ffffff !default;    //surface
-$shade100:#f8f9fa !default;    //header background
-$shade200:#e9ecef !default;    //hover background
-$shade300:#dee2e6 !default;    //border, divider
-$shade400:#ced4da !default;    //input border
-$shade500:#adb5bd !default;    //input icon
-$shade600:#6c757d !default;    //text secondary color
-$shade700:#495057 !default;    //text color
+$shade100:#FCFCFC !default;    //header background
+$shade200:rgba($primaryColor,.2) !default;    //hover background
+$shade300:#D4D6D9 !default;    //border, divider
+$shade400:#D4D6D9 !default;    //input border
+$shade500:#545B67 !default;    //input icon
+$shade600:#83888F !default;    //text secondary color
+$shade700:#69707A !default;    //text color
 $shade800:#343a40 !default;    //unused
 $shade900:#212529 !default;    //unused
 
 //global
-$fontFamily:'Inter UI',sans-serif;
+$fontFamily:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $fontSize:1rem !default;
 $fontWeight:normal !default;
 $textColor:$shade700 !default;
 $textSecondaryColor:$shade600 !default;
-$borderRadius:3px !default;
+$borderRadius:6px !default;
 $transitionDuration:.2s !default;
 $formElementTransition:background-color $transitionDuration, color $transitionDuration, border-color $transitionDuration, box-shadow $transitionDuration !default;
 $actionIconTransition:background-color $transitionDuration, color $transitionDuration, box-shadow $transitionDuration !default;
@@ -388,6 +427,7 @@ $actionIconBorderRadius:50% !default;
 //input field (e.g. inputtext, spinner, inputmask)
 $inputPadding:.5rem .5rem !default;
 $inputTextFontSize:1rem !default;
+
 $inputBg:$shade000 !default;
 $inputTextColor:$shade700 !default;
 $inputIconColor:$shade600 !default;
@@ -398,7 +438,7 @@ $inputErrorBorderColor:$errorColor !default;
 $inputPlaceholderTextColor:$shade600 !default;
 $inputFilledBg:$shade100 !default;
 $inputFilledHoverBg:$inputFilledBg !default;
-$inputFilledFocusBg:$inputFilledBg !default;
+$inputFilledFocusBg:$shade000 !default;
 
 //input groups
 $inputGroupBg:$shade200 !default;
@@ -428,14 +468,14 @@ $inputListHeaderBorder:0 none !default;
 //inputs with overlays (e.g. autocomplete, dropdown, multiselect)
 $inputOverlayBg:$inputListBg !default;
 $inputOverlayHeaderBg:$inputListHeaderBg !default;
-$inputOverlayBorder:0 none !default;
+$inputOverlayBorder:0 none !default;                  
 $inputOverlayShadow:0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
 
 //password
 $passwordMeterBg:$shade300 !default;
-$passwordWeakBg:#FFCDD2 !default;
-$passwordMediumBg:#FFECB3 !default;
-$passwordStrongBg:#C8E6C9 !default;
+$passwordWeakBg:#D32F2F !default;
+$passwordMediumBg:#FBC02D !default;
+$passwordStrongBg:#689F38 !default;
 
 //button
 $buttonPadding:.5rem 1rem !default;
@@ -818,6 +858,7 @@ $tableFooterCellFontWeight:600 !default;
 $tableFooterCellBorder:1px solid $shade200 !default;
 $tableFooterCellBorderWidth:0 0 1px 0 !default;
 $tableResizerHelperBg:$primaryColor !default;
+$tableDragHelperBg: rgba($primaryColor, .16) !default;
 
 $tableFooterBorder:1px solid $shade200 !default;
 $tableFooterBorderWidth:0 0 1px 0 !default;
@@ -925,13 +966,14 @@ $dialogHeaderTextColor:$shade700 !default;
 $dialogHeaderFontWeight:600 !default;
 $dialogHeaderFontSize:1.25rem !default;
 $dialogHeaderPadding:1.5rem !default;
-$dialogContentPadding:0 1.5rem !default;
+$dialogContentPadding:0 1.5rem 2rem 1.5rem !default;
 $dialogFooterBorder:0 none !default;
-$dialogFooterPadding:1.5rem !default;
+$dialogFooterPadding:0 1.5rem 1.5rem 1.5rem !default;
 
 //confirmpopup
 $confirmPopupContentPadding:$panelContentPadding;
 $confirmPopupFooterPadding:0 1rem 1rem 1rem;
+
 
 //tooltip
 $tooltipBg:$shade700 !default;
@@ -950,7 +992,7 @@ $stepsItemNumberBorderRadius:50% !default;
 $stepsItemActiveFontWeight:600 !default;
 
 //progressbar
-$progressBarHeight:1.5rem !default;
+$progressBarHeight:1rem !default;
 $progressBarBorder:0 none !default;
 $progressBarBg:$shade300 !default;
 $progressBarValueBg:$primaryColor !default;
@@ -981,6 +1023,7 @@ $overlayMenuBg:$menuBg !default;
 $overlayMenuBorder:0 none !default;
 $overlayMenuShadow:0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
 $verticalMenuPadding:.25rem 0 !default;
+$verticalMenuitemMargin:0;
 $menuSeparatorMargin:.25rem 0 !default;
 
 $breadcrumbPadding:1rem !default;
@@ -1081,7 +1124,12 @@ $dividerColor:$shade300;
 
 //avatar
 $avatarBg:$shade300;
-$avatarColor:$textColor;
+$avatarTextColor:$textColor;
+
+//chip
+$chipBg:$shade300;
+$chipTextColor:$textColor;
+$chipBorderRadius: 16px;
 
 //scrollTop
 $scrollTopBg:rgba(0,0,0,0.7);
@@ -1092,142 +1140,79 @@ $scrollTopBorderRadius:50%;
 $scrollTopFontSize:1.5rem;
 $scrollTopTextColor:$shade100;
 
+//skeleton
+$skeletonBg:$shade200;
+$skeletonAnimationBg:rgba(255,255,255,0.4);
+
+//splitter
+$splitterGutterBg:$shade100;
+$splitterGutterHandleBg:$shade300;
+
+
 :root {
-	--surface-a:#{$shade000};
-	--surface-b:#{$shade100};
-	--surface-c:#{$shade200};
-	--surface-d:#{$shade300};
-	--surface-e:#{$shade000};
-	--surface-f:#{$shade000};
-	--text-color:#{$shade700};
-	--text-color-secondary:#{$shade600};
-	--primary-color:#{$primaryColor};
-	--primary-color-text:#{$primaryTextColor};
-	--font-family:#{$fontFamily};
+    --surface-a:#{$shade000};
+    --surface-b:#{$shade100};
+    --surface-c:#{$shade200};
+    --surface-d:#{$shade300};
+    --surface-e:#{$shade000};
+    --surface-f:#{$shade000};
+    --text-color:#{$shade700};
+    --text-color-secondary:#{$shade600};
+    --primary-color:#{$primaryColor};
+    --primary-dark-color:#{$primaryDarkColor};
+    --primary-light-color:#{$primaryLightColor};
+    --primary-lighter-color:#{$primaryLighterColor};
+    --primary-color-text:#{$primaryTextColor};
+    --font-family:#{$fontFamily};
+    --surface-0: #ffffff;
+    --surface-50: #FAFAFA;
+    --surface-100: #F5F5F5;
+    --surface-200: #EEEEEE;
+    --surface-300: #E0E0E0;
+    --surface-400: #BDBDBD;
+    --surface-500: #9E9E9E;
+    --surface-600: #757575;
+    --surface-700: #616161;
+    --surface-800: #424242;
+    --surface-900: #212121;
+    --content-padding:#{$panelContentPadding};
+    --inline-spacing:#{$inlineSpacing};
 }
 `}
 </AppCodeHighlight>
 </div>
-      
-                    <h6>sass/layout/_variables</h6>
+<h4>Menu Modes</h4>
+				<p>Menu has 3 modes, sidebar, horizontal and slim. Layout container element in App.js is used to define which mode to use by adding specific classes. List below indicates the style classes for each mode.</p>
+				<ul>
+					<li>Sidebar: "layout-wrapper layout-sidebar"</li>
+					<li>Horizontal: "layout-wrapper layout-horizontal"</li>
+					<li>Slim: "layout-wrapper layout-slim"</li>
+				</ul>
+
+				<p>For example to create a horizontal menu, the div element should be in following form;</p>
 <AppCodeHighlight lang="scss">
 {`
-$fontFamily:'Inter UI',sans-serif;
-$fontSize:13px;
-$textColor:#252529;
-$textSecondaryColor:#65656a;
-$borderRadius:2px;
-$transitionDuration:.2s;
-
-//main
-$bodyBgColor:#f4f4f4;
-
-$footerBgColor:#ffffff;
-$footerBorderColor:#ebebef;
-
-$dividerColor: #ebedef;
-
-//light menu
-$menuBgColor:#ffffff;
-$menuBorderColor:#ebebef;
-$menuitemTextColor:#666666;
-$menuitemIconColor:#65656a;
-$menuitemTextHoverColor:#252529;
-$menuitemIconHoverColor:#252529;
-$menuitemHoverBgColor:#eaeaea;
-$menuitemSeparator:#ebebef;
-
-//dark menu
-$darkMenuBgColor:#252529;
-$darkMenuBorderColor:#252529;
-$darkMenuitemTextColor:#8b8b90;
-$darkMenuitemIconColor:#a6a6a6;
-$darkMenuitemTextHoverColor:#ebebef;
-$darkMenuitemIconHoverColor:#ebebef;
-$darkMenuitemHoverBgColor:#2e2e33;
-$darkMenuitemSeparator:#424247;
-
-$slimMenuTooltipBgColor:#333333;
-$slimMenuTooltipTextColor:#c8c8c8;
+<div class="layout-wrapper layout-sidebar">
 `}
 </AppCodeHighlight>
+                <h4>Grid CSS</h4>
+				<p>Freya uses PrimeReact Flex Grid CSS throughout the demos such as Dashboard, however any Grid library can be used with it since Freya Layout itself does not depend on PrimeFlex CSS.</p>
 
-                    <p>In the demo app layout and theme css files are defined using link tags in index.html so the demo can switch them on the fly by changing the path however if this is not a requirement, you may also import them in App.js so that webpack adds them to the bundle.</p>
+				<h4>Customizing Styles</h4>
+				<p>It is suggested to add your customizations in the following sass files under the "sass/overrides" folder instead of adding them to the scss files under sass folder to avoid maintenance issues after an update.</p>
 
-                    <h4>Menu Modes</h4>
-                    <p>Menu has 4 modes, static, overlay, slim and horizontal. Layout container element in app.component.html is used to define which mode to use by adding specific classes. List
-                        below indicates the style classes for each mode. </p>
+				<ul>
+					<li><b>_layout_variables</b>: Variables of the layout.</li>
+					<li><b>_layout_styles</b>: Styles for the layout.</li>
+					<li><b>_theme_variables</b>: Variables of the theme.</li>
+					<li><b>_theme_styles</b>: Styles for the theme.</li>
+				</ul>
 
-                    <ul>
-                        <li>Static: "layout-wrapper layout-static"</li>
-                        <li>Overlay: "layout-wrapper layout-overlay"</li>
-                        <li>Slim: "layout-wrapper layout-slim"</li>
-                        <li>Horizontal: "layout-wrapper layout-horizontal"</li>
-                    </ul>
+				<h4>Migration Guide</h4>
+				<p>Every change is included in <b>CHANGELOG.md</b> file at the root folder of the distribution along with the instructions to update.</p>
 
-                    <p>For example to create a horizontal menu, the div element should be in following form;</p>
-<AppCodeHighlight>
-{`
-<div className="layout-wrapper layout-horizontal">
-`}
-</AppCodeHighlight>
-
-                    <p>It is also possible to leave the choice to the user by keeping the preference at a component and using an expression to bind it so that user can switch between modes. Sample
-                            application has an example implementation of such use case. Refer to App.js for an example.</p>
-
-                    <h4>Menu Colors</h4>
-                    <p>Menu offers two color options, "light" and "dark" which is defined using the main container element.</p>
-                    <ul>
-                        <li>Light: "layout-wrapper layout-menu-light"</li>
-                        <li>Dark: "layout-wrapper layout-menu-dark"</li>
-                    </ul>
-
-                    <h4>TopBar Colors</h4>
-                    <p>Roma provides 17 built-in color alternatives for the topbar which is defined by adding a style class to the "layout-wrapper" element such as "layout-topbar-dark".</p>
-<AppCodeHighlight>
-{`
-<div className="layout-wrapper layout-topbar-dark">
-`}
-</AppCodeHighlight>
-
-                    <p>The full list of alternatives are;</p>
-                    <ul>
-                        <li>layout-topbar-light</li>
-                        <li>layout-topbar-dark</li>
-                        <li>layout-topbar-blue</li>
-                        <li>layout-topbar-green</li>
-                        <li>layout-topbar-orange</li>
-                        <li>layout-topbar-magenta</li>
-                        <li>layout-topbar-bluegrey</li>
-                        <li>layout-topbar-deeppurple</li>
-                        <li>layout-topbar-brown</li>
-                        <li>layout-topbar-lime</li>
-                        <li>layout-topbar-rose</li>
-                        <li>layout-topbar-cyan</li>
-                        <li>layout-topbar-teal</li>
-                        <li>layout-topbar-deeporange</li>
-                        <li>layout-topbar-indigo</li>
-                        <li>layout-topbar-pink</li>
-                        <li>layout-topbar-purple</li>
-                    </ul>
-
-                    <h4>Grid CSS</h4>
-                    <p>Roma uses PrimeReact Flex Grid CSS throughout the demos such as Dashboard, however any Grid library can be used with it since Roma Layout itself does not depend on PrimeFlex CSS.</p>
-
-                    <h4>Customizing Styles</h4>
-                    <p>It is suggested to add your customizations in the following sass files under the "sass/overrides" folder instead of adding them to the scss files under sass folder to avoid maintenance issues after an update.</p>
-
-                    <ul>
-                        <li><b>_layout_variables</b>: Variables of the layout.</li>
-                        <li><b>_layout_styles</b>: Styles for the layout.</li>
-                        <li><b>_theme_variables</b>: Variables of the theme.</li>
-                        <li><b>_theme_styles</b>: Styles for the theme.</li>
-                    </ul>
-
-                    <h4>Migration Guide</h4>
-                    <p>Every change is included in <b>CHANGELOG.md</b> file at the root folder of the distribution along with the instructions to update.</p>
-                </div>
             </div>
-        </div>
+            </div>
+    </div>
     )
 }
