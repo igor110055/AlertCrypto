@@ -202,7 +202,7 @@
 @mixin nested-submenu-indents($val, $index, $length) {
     ul {
         li {
-            a {
+            a, button {
                 padding-left: $val * $index * 1px;
             }
 

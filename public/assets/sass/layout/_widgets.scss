@@ -462,8 +462,9 @@
         margin: 0;
         color: $textShade200;
 
-        > a {
+        > a, > button {
             margin-left: 10px;
+            font-weight: 600;
             i {
                 @include rotate(45deg);
             }
@@ -502,6 +503,10 @@
                     color: var(--primary-color);
                     border: 0 none;
                     overflow: visible;
+
+                    > span {
+                        line-height: 0;
+                    }
 
                     img{
                         @include border-radius(20px);

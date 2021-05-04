@@ -217,18 +217,18 @@ const App = (props) => {
 
     const onMenuModeChange = (menuMode) => {
         setMenuMode(menuMode)
-        if(menuMode === 'sidebar') { 
-            if(sidebarStatic) {
+        if (menuMode === 'sidebar') {
+            if (sidebarStatic) {
                 setSidebarActive(true)
             }
         }
         else {
             setSidebarActive(false)
-            if(topbarScheme !== menuScheme) {
+            if (topbarScheme !== menuScheme) {
                 setMenuScheme(topbarScheme)
             }
-        } 
-        if(topbarScheme ==='dark') {
+        }
+        if (topbarScheme === 'dark') {
             setThemeScheme('dark')
         }
     };
@@ -427,8 +427,7 @@ const App = (props) => {
                 menu={menu} menuActive={menuActive} onRootMenuItemClick={onRootMenuItemClick} mobileMenuActive={staticMenuMobileActive}
                 onMenuItemClick={onMenuItemClick} menuMode={menuMode}
                 sidebarStatic={sidebarStatic} sidebarActive={sidebarActive} onSidebarMouseOver={onSidebarMouseOver} onSidebarMouseLeave={onSidebarMouseLeave}
-                onToggleMenu={onToggleMenu} onMenuButtonClick={onMenuButtonClick} resetActiveIndex={resetActiveIndex} onMenuClick={onMenuClick}
-            />
+                onToggleMenu={onToggleMenu} onMenuButtonClick={onMenuButtonClick} resetActiveIndex={resetActiveIndex} onMenuClick={onMenuClick} />
 
             <AppRightPanel onRightPanelClick={onRightPanelClick} />
 
@@ -440,8 +439,7 @@ const App = (props) => {
                 topbarScheme={topbarScheme} onTopbarSchemeChange={onTopbarSchemeChange}
                 menuScheme={menuScheme} onMenuSchemeChange={onMenuSchemeChange}
                 themeScheme={themeScheme} onThemeSchemeChange={onThemeSchemeChange}
-                theme={theme} onThemeChange={onThemeChange}
-            />
+                theme={theme} onThemeChange={onThemeChange} />
 
             <div className="layout-main">
                 <div className="layout-content">

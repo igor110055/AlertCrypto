@@ -77,8 +77,8 @@ export const MediaDemo = () => {
         );
     };
 
-    const galleriaItemTemplate = (item) => <img src={`assets/${item.itemImageSrc}`} alt={item.alt} style={{ width: '100%', display: 'block' }} />
-    const galleriaThumbnailTemplate = (item) => <img src={`assets/${item.thumbnailImageSrc}`} alt={item.alt} style={{ width: '100%', display: 'block' }} />
+    const galleriaItemTemplate = (item) => <img src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', display: 'block' }} />
+    const galleriaThumbnailTemplate = (item) => <img src={item.thumbnailImageSrc} alt={item.alt} style={{ width: '100%', display: 'block' }} />
 
     return (
         <div className="p-grid p-fluid media-demo">

@@ -106,7 +106,7 @@ export const Dashboard = () => {
                 </div>
 
                 <div className="p-col-12">
-                    <div className="p-grid">
+                    <div className="p-grid" style={{ margin: '-1rem' }}>
                         <div className="p-col">
                             <div className="card overview-box white">
                                 <div className="overview-info">
