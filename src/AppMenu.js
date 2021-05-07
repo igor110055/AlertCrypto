@@ -47,6 +47,12 @@ const AppSubmenu = (props) => {
         });
     };
 
+    const onKeyDown = (event, item, index) => {
+        if (event.key === 'Enter') {
+            onMenuItemClick(event, item, index);
+        }
+    }
+
     const getInk = (el) => {
         for (let i = 0; i < el.children.length; i++) {
             if (typeof el.children[i].className === 'string' && el.children[i].className.indexOf('p-ink') !== -1) {
@@ -94,20 +100,19 @@ const AppSubmenu = (props) => {
         );
         const commonLinkProps = {
             'style': item.style,
-            'className': classNames(item.className, 'p-ripple', { 'p-disabled': item.disabled, 'p-link': !item.to }),
+            'className': classNames(item.className, 'p-ripple', { 'p-disabled': item.disabled }),
             'target': item.target,
             'onClick': (e) => onMenuItemClick(e, item, index),
-            'onMouseEnter': () => onMenuItemMouseEnter(index)
+            'onMouseEnter': () => onMenuItemMouseEnter(index),
+            'onKeyDown': (e) => onKeyDown(e, item, index)
         }
 
-        if (item.url) {
-            return <a href={item.url} rel="noopener noreferrer" {...commonLinkProps}>{content}</a>
+        if (item.to) {
+            return <NavLink to={item.to} exact activeClassName="active-route" {...commonLinkProps}>{content}</NavLink>;
         }
-        else if (!item.to) {
-            return <button type="button" {...commonLinkProps}>{content}</button>
+        else {
+            return <a href={item.url} rel="noopener noreferrer" tabIndex={item.url ? '' : 0} {...commonLinkProps}>{content}</a>
         }
-
-        return <NavLink to={item.to} exact activeClassName="active-route" {...commonLinkProps}>{content}</NavLink>;
     };
 
     const getItems = () => {
