@@ -303,7 +303,7 @@ sass --watch public/assets:public/assets
 
                     <h5>sass/variables/layout/_layout_common.scss</h5>
                     <p>Common variables for light and dark application layout.</p>
-<AppCodeHighlight>
+<AppCodeHighlight lang="scss">
 {`
 //general
 $fontSize:14px !default;
@@ -320,7 +320,7 @@ $phoneBreakpoint:576px !default;
 </AppCodeHighlight>
                 <h5>sass/variables/layout/_layout_light.scss</h5>
 				<p>Variables of the light theme layout.</p>
-<AppCodeHighlight>
+<AppCodeHighlight lang="scss">
 {`
 $bodyBgColor:#F2F4F6  !default;
 $dividerColor:#dee2e6 !default;
