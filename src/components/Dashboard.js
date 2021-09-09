@@ -18,60 +18,66 @@ const chart1 = {
             backgroundColor: [
                 'rgba(255, 169, 40, .2)'
             ],
+            tension: .4
         }
     ]
 }
+
 const chartOptions1 = {
-    legend: {
-        display: false,
+    plugins: {
+        legend: {
+            display: false,
+        }
     },
     maintainAspectRatio: false,
     hover: {
         mode: 'index'
     },
     scales: {
-        xAxes: [{
+        x: {
             display: false,
-        }],
-        yAxes: [{
+        },
+        y: {
             display: false,
-        }]
+        }
     }
 }
 
 
 const chartOptions2 = {
-    legend: {
-        display: false,
+    plugins: {
+        legend: {
+            display: false,
+        }
     },
     maintainAspectRatio: false,
     hover: {
         mode: 'index'
     },
     scales: {
-        xAxes: [{
+        x: {
             display: true,
-            gridLines: {
-                color: 'transparent',
+            grid: {
+                color:    'transparent',
             },
             ticks: {
-                fontColor: '#BFC2C6'
+                color: '#BFC2C6'
             }
-        }],
-        yAxes: [{
+        },
+        y: {
             display: true,
-            gridLines: {
-                color: 'rgba(191, 194, 198, .45)',
-                borderDash: [5, 10],
+            grid: {
+                color:  'rgba(191, 194, 198, .45)',
+                borderDash:[5, 10],
             },
             ticks: {
-                fontColor: '#BFC2C6',
+                color:  '#BFC2C6',
                 min: 0,
                 stepSize: 5,
             }
-        }]
+        }
     }
-}
+};
 
 const getChart = () => {
     const borderColor = getComputedStyle(document.body).getPropertyValue('--primary-color') || '#2c84d8';
@@ -86,6 +92,7 @@ const getChart = () => {
                 borderWidth: 4,
                 fill: true,
                 backgroundColor: [backgroundColor],
+                tension: .4,
             }
         ]
     }
@@ -185,7 +192,7 @@ export const Dashboard = () => {
                                 <div className="event-content">
                                     <span className="event-title">Capacity</span>
                                     <span>Reached 80% CPU capacity in Ireland. Automatic
-                                            capacity increase initiated.</span>
+                                        capacity increase initiated.</span>
                                     <span className="time">1:30PM</span>
                                 </div>
                             </li>
