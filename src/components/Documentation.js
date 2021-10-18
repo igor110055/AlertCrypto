@@ -18,6 +18,8 @@ export const Documentation = () => {
 {`
 "npm install" or "yarn"
 `}
+</AppCodeHighlight>
+
                     <p>The following command needs to be run to create the css files in the sample project.
                         Note: Users can automatically run scss files without using this command by moving the theme file they want to use in their own projects under the src folder.
                     <a href="https://create-react-app.dev/docs/adding-a-sass-stylesheet/"> Details</a></p>
@@ -25,7 +27,6 @@ export const Documentation = () => {
 {`
 sass public/assets:public/assets --no-source-map
 `}
-</AppCodeHighlight>
 </AppCodeHighlight>
 
                     <p>Next step is running the application using the start script and navigate to <b>http://localhost:3000/</b> to view the application.</p>
@@ -35,7 +36,7 @@ sass public/assets:public/assets --no-source-map
 "npm start" or "yarn start"
 `}
 </AppCodeHighlight>
-                    <p>That is it, you may now start with the development of your application using the Roma template.</p>
+                    <p>That is it, you may now start with the development of your application using the Freya template.</p>
 
                     <h4>React Scripts</h4>
                     <p>Following commands are derived from create-app-app.</p>
