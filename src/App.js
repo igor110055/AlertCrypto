@@ -1,47 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
-import { Route } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { classNames } from 'primereact/utils';
+import { Route, useLocation } from 'react-router-dom';
 
 import AppTopbar from './AppTopbar';
 import AppFooter from './AppFooter';
 import AppConfig from './AppConfig';
 import AppRightPanel from './AppRightPanel';
 
-import { Dashboard } from './components/Dashboard';
-import { FormLayoutDemo } from './components/FormLayoutDemo';
-import { InputDemo } from './components/InputDemo';
-import { FloatLabelDemo } from './components/FloatLabelDemo';
-import { InvalidStateDemo } from './components/InvalidStateDemo';
-import { ButtonDemo } from './components/ButtonDemo';
-import { TableDemo } from './components/TableDemo';
-import { ListDemo } from './components/ListDemo';
-import { TreeDemo } from './components/TreeDemo';
-import { PanelDemo } from './components/PanelDemo';
-import { OverlayDemo } from './components/OverlayDemo';
-import { MediaDemo } from './components/MediaDemo';
-import { MenuDemo } from './components/MenuDemo';
-import { MessagesDemo } from './components/MessagesDemo';
-import { FileDemo } from './components/FileDemo';
-import { ChartDemo } from './components/ChartDemo';
-import { MiscDemo } from './components/MiscDemo';
-import { Documentation } from './components/Documentation';
-import { IconsDemo } from './utilities/IconsDemo';
-import { Widgets } from './utilities/Widgets';
-import { GridDemo } from './utilities/GridDemo';
-import { SpacingDemo } from './utilities/SpacingDemo';
-import { ElevationDemo } from './utilities/ElevationDemo';
-import { TextDemo } from './utilities/TextDemo';
-import { TypographyDemo } from './utilities/TypographyDemo';
-import { DisplayDemo } from './utilities/DisplayDemo';
-import { FlexBoxDemo } from './utilities/FlexboxDemo';
-import { CrudDemo } from './pages/CrudDemo';
-import { CalendarDemo } from './pages/CalendarDemo';
-import { TimelineDemo } from './pages/TimelineDemo';
-import { Invoice } from './pages/Invoice';
-import { Help } from './pages/Help';
-import { EmptyPage } from './pages/EmptyPage';
+import Dashboard from './components/Dashboard';
+import FormLayoutDemo from './components/FormLayoutDemo';
+import InputDemo from './components/InputDemo';
+import FloatLabelDemo from './components/FloatLabelDemo';
+import InvalidStateDemo from './components/InvalidStateDemo';
+import ButtonDemo from './components/ButtonDemo';
+import TableDemo from './components/TableDemo';
+import ListDemo from './components/ListDemo';
+import TreeDemo from './components/TreeDemo';
+import PanelDemo from './components/PanelDemo';
+import OverlayDemo from './components/OverlayDemo';
+import MediaDemo from './components/MediaDemo';
+import MenuDemo from './components/MenuDemo';
+import MessagesDemo from './components/MessagesDemo';
+import FileDemo from './components/FileDemo';
+import ChartDemo from './components/ChartDemo';
+import MiscDemo from './components/MiscDemo';
+import Documentation from './components/Documentation';
+import IconsDemo from './utilities/IconsDemo';
+import CrudDemo from './pages/CrudDemo';
+import CalendarDemo from './pages/CalendarDemo';
+import TimelineDemo from './pages/TimelineDemo';
+import Invoice from './pages/Invoice';
+import Help from './pages/Help';
+import EmptyPage from './pages/EmptyPage';
+import BlocksDemo from './components/BlocksDemo';
 
 import PrimeReact from 'primereact/api';
+import { Tooltip } from "primereact/tooltip";
 
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -66,14 +60,16 @@ const App = (props) => {
     const [themeScheme, setThemeScheme] = useState('light')
     const [theme, setTheme] = useState('purple');
     const [searchActive, setSearchActive] = useState(false);
-    const [topbarUserMenuActive, setTopbarUserMenuActive] = useState(false)
+    const [topbarUserMenuActive, setTopbarUserMenuActive] = useState(false);
+    const copyTooltipRef = useRef();
+    const location = useLocation();
 
     const menu = [
         {
             label: 'Dashboard', icon: 'pi pi-home', to: '/'
         },
         {
-            label: 'UI Kit', icon: 'pi pi-star-o',
+            label: 'UI Kit', icon: 'pi pi-star',
             items: [
                 { label: 'Form Layout', icon: 'pi pi-id-card', to: '/uikit/formlayout' },
                 { label: 'Input', icon: 'pi pi-check-square', to: '/uikit/input' },
@@ -94,17 +90,17 @@ const App = (props) => {
             ]
         },
         {
+            label: "PrimeBlocks", icon: "pi pi-prime",
+            items: [
+                { label: "Free Blocks", icon: "pi pi-eye", to: "/uiblocks/blocks", badge: "NEW" },
+                { label: "All Blocks", icon: "pi pi-globe", url: "https://www.primefaces.org/primeblocks-react", target: "_blank" }
+            ]
+        },
+        {
             label: 'Utilities', icon: 'pi pi-compass',
             items: [
-                { label: 'Display', icon: 'pi pi-desktop', to: '/utilities/display' },
-                { label: 'Elevation', icon: 'pi pi-external-link', to: '/utilities/elevation' },
-                { label: 'Flexbox', icon: 'pi pi-directions', to: '/utilities/flexbox' },
-                { label: 'Icons', icon: 'pi pi-search', to: '/utilities/icons' },
-                { label: 'Widgets', icon: 'pi pi-star-o', to: '/utilities/widgets' },
-                { label: 'Grid System', icon: 'pi pi-th-large', to: '/utilities/grid' },
-                { label: 'Spacing', icon: 'pi pi-arrow-right', to: '/utilities/spacing' },
-                { label: 'Typography', icon: 'pi pi-align-center', to: '/utilities/typography' },
-                { label: 'Text', icon: 'pi pi-pencil', to: '/utilities/text' },
+                { label: 'Icons', icon: 'pi pi-prime', to: '/utilities/icons' },
+                { label: "PrimeFlex", icon: "pi pi-desktop", url: "https://www.primefaces.org/primeflex", target: "_blank" }
             ]
         },
         {
@@ -182,6 +178,11 @@ const App = (props) => {
     let configClick;
     let searchClick;
     let topbarUserMenuClick;
+
+
+    useEffect(() => {
+        copyTooltipRef && copyTooltipRef.current && copyTooltipRef.current.updateTargetEvents();
+    }, [location]);
 
     useEffect(() => {
         if (staticMenuMobileActive) {
@@ -420,6 +421,7 @@ const App = (props) => {
 
     return (
         <div className={layoutClassName} onClick={onDocumentClick}>
+            <Tooltip ref={copyTooltipRef} target=".block-action-copy" position="bottom" content="Copied to clipboard" event="focus" />
 
             <AppTopbar topbarScheme={topbarScheme} onRightPanelButtonClick={onRightPanelButtonClick}
                 searchActive={searchActive} onTopbarSearchToggle={onTopbarSearchToggle} onTopbarSearchClick={onTopbarSearchClick}
@@ -459,23 +461,16 @@ const App = (props) => {
                     <Route path="/uikit/message" component={MessagesDemo} />
                     <Route path="/uikit/media" component={MediaDemo} />
                     <Route path="/uikit/file" component={FileDemo} />
-                    <Route path="/uikit/chart" component={ChartDemo} />
+                    <Route path="/uikit/chart" render={() => <ChartDemo colorMode={colorScheme} location={location} />} />
                     <Route path="/uikit/misc" component={MiscDemo} />
-                    <Route path="/utilities/display" component={DisplayDemo} />
-                    <Route path="/utilities/elevation" component={ElevationDemo} />
-                    <Route path="/utilities/flexbox" component={FlexBoxDemo} />
                     <Route path="/utilities/icons" component={IconsDemo} />
-                    <Route path="/utilities/widgets" component={Widgets} />
-                    <Route path="/utilities/grid" component={GridDemo} />
-                    <Route path="/utilities/spacing" component={SpacingDemo} />
-                    <Route path="/utilities/typography" component={TypographyDemo} />
-                    <Route path="/utilities/text" component={TextDemo} />
                     <Route path="/pages/crud" component={CrudDemo} />
                     <Route path="/pages/calendar" component={CalendarDemo} />
-                    <Route path="/pages/help" render={() => <Help colorScheme={colorScheme} />} />
+                    <Route path="/pages/help" render={() => <Help colorScheme={colorScheme} />} location={location} />
                     <Route path="/pages/invoice" component={Invoice} />
                     <Route path="/pages/empty" component={EmptyPage} />
                     <Route path="/pages/timeline" component={TimelineDemo} />
+                    <Route path="/uiblocks/blocks" component={BlocksDemo} />
                 </div>
 
                 <AppFooter />

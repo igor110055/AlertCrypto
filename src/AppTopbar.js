@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import classNames from 'classnames';
+import { classNames } from 'primereact/utils';
 import { InputText } from 'primereact/inputtext';
 import AppMenu from './AppMenu';
 import { useHistory } from 'react-router-dom';

@@ -101,20 +101,20 @@ const getChart = () => {
 const chart2 = getChart()
 
 
-export const Dashboard = () => {
+const Dashboard = () => {
 
     return (
         <div className="layout-dashboard">
-            <div className="p-grid">
-                <div className="p-col-12">
+            <div className="grid">
+                <div className="col-12">
                     <div className="notification">
                         <h6>👋  Hello! Welcome to Hit! Before start please complete your profile to know you better. <button className="p-link">Profile settings <i className="pi pi-arrow-up"></i></button></h6>
                     </div>
                 </div>
 
-                <div className="p-col-12">
-                    <div className="p-grid" style={{ margin: '-1rem' }}>
-                        <div className="p-col">
+                <div className="col-12 pb-0">
+                    <div className="grid">
+                        <div className="col">
                             <div className="card overview-box white">
                                 <div className="overview-info">
                                     <h6>Graphics</h6>
@@ -123,7 +123,7 @@ export const Dashboard = () => {
                                 <i className="pi pi-image"></i>
                             </div>
                         </div>
-                        <div className="p-col">
+                        <div className="col">
                             <div className="card overview-box blue">
                                 <div className="overview-info">
                                     <h6>New users (Today)</h6>
@@ -132,7 +132,7 @@ export const Dashboard = () => {
                                 <i className="pi pi-users"></i>
                             </div>
                         </div>
-                        <div className="p-col">
+                        <div className="col">
                             <div className="card overview-box gray">
                                 <div className="overview-info">
                                     <h6>Uptime</h6>
@@ -141,7 +141,7 @@ export const Dashboard = () => {
                                 <i className="pi pi-globe"></i>
                             </div>
                         </div>
-                        <div className="p-col">
+                        <div className="col">
                             <div className="card overview-box darkgray">
                                 <div className="overview-info">
                                     <h6>Text coverage</h6>
@@ -150,7 +150,7 @@ export const Dashboard = () => {
                                 <i className="pi pi-th-large"></i>
                             </div>
                         </div>
-                        <div className="p-col">
+                        <div className="col">
                             <div className="card overview-box orange">
                                 <div className="overview-info">
                                     <h6>Cloud users</h6>
@@ -162,7 +162,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-md-6 p-xl-3">
+                <div className="col-12 md:col-6 xl:col-3">
                     <div className="card timeline">
                         <div className="card-header">
                             <div className="card-title">
@@ -226,12 +226,12 @@ export const Dashboard = () => {
                 </div>
 
 
-                <div className="p-col-12 p-md-6">
-                    <div className="p-grid">
-                        <div className="p-col-12">
+                <div className="col-12 md:col-6">
+                    <div className="grid">
+                        <div className="col-12">
                             <div className="card device-status">
-                                <div className="p-grid">
-                                    <div className="p-col-12 p-xl-9">
+                                <div className="grid">
+                                    <div className="col-12 xl:col-9">
                                         <div className="card-header">
                                             <div className="card-title">
                                                 <h6>Total connected device change for last 4 days</h6>
@@ -261,33 +261,33 @@ export const Dashboard = () => {
                                         </div>
                                         <button className="p-link">More</button>
                                     </div>
-                                    <div className="p-col-12 p-xl-3">
+                                    <div className="col-12 xl:col-3">
                                         <div className="card-header">
                                             <div className="card-title">
                                                 <h6>Devices</h6>
                                                 <p className="subtitle">Type</p>
                                             </div>
                                         </div>
-                                        <div className="p-grid p-nogutter">
-                                            <div className="p-col-3 p-xl-12">
+                                        <div className="grid grid-nogutter">
+                                            <div className="col-3 xl:col-12">
                                                 <div className="device">
                                                     <span><span>1</span> iPhone</span>
                                                     <span className="status">22%</span>
                                                 </div>
                                             </div>
-                                            <div className="p-col-3 p-xl-12">
+                                            <div className="col-3 xl:col-12">
                                                 <div className="device">
                                                     <span><span>2</span> Galaxy S20</span>
                                                     <span className="status">18%</span>
                                                 </div>
                                             </div>
-                                            <div className="p-col-3 p-xl-12">
+                                            <div className="col-3 xl:col-12">
                                                 <div className="device">
                                                     <span><span>3</span> Macbook</span>
                                                     <span className="status">13%</span>
                                                 </div>
                                             </div>
-                                            <div className="p-col-3 p-xl-12">
+                                            <div className="col-3 xl:col-12">
                                                 <div className="device">
                                                     <span><span>4</span> Macbook Air</span>
                                                     <span className="status">11%</span>
@@ -299,7 +299,7 @@ export const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-col-12  desktop-teams">
+                        <div className="col-12  desktop-teams">
                             <div className="card team">
                                 <div className="card-header">
                                     <div className="card-title">
@@ -324,7 +324,7 @@ export const Dashboard = () => {
                     </div >
                 </div >
 
-                <div className="p-col-12 p-md-8 p-xl-3">
+                <div className="col-12 md:col-8 xl:col-3">
                     <div className="card operations">
                         <div className="card-header">
                             <div className="card-title">
@@ -356,7 +356,7 @@ export const Dashboard = () => {
                     </div>
                 </div >
 
-                <div className="p-col-12 p-md-4 p-xl-3 mobile-teams">
+                <div className="col-12 md:col-4 xl:col-3 mobile-teams">
                     <div className="card team">
                         <div className="card-header">
                             <div className="card-title">
@@ -399,9 +399,9 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-md-12 p-xl-8">
-                    <div className="p-grid">
-                        <div className="p-col-12">
+                <div className="col-12 md:col-12 xl:col-8">
+                    <div className="grid">
+                        <div className="col-12">
                             <div className="card chart">
                                 <div className="card-header">
                                     <div className="card-title">
@@ -412,7 +412,7 @@ export const Dashboard = () => {
                                 <Chart type="line" data={chart2} options={chartOptions2} style={{ maxHeight: '330px' }}></Chart>
                             </div>
                         </div>
-                        <div className="p-col-12  p-md-5">
+                        <div className="col-12 md:col-5">
                             <div className="card map">
                                 <img src="assets/demo/images/dashboard/asset-map.png" alt="freya-layout" />
                                 <div className="map-content">
@@ -429,7 +429,7 @@ export const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-col-12 p-md-7">
+                        <div className="col-12 md:col-7">
                             <div className="card schedule">
                                 <div className="card-header">
                                     <div className="card-title">
@@ -478,9 +478,9 @@ export const Dashboard = () => {
                         </div>
                     </div>
                 </div >
-                <div className="p-col-12 p-xl-4">
-                    <div className="p-grid">
-                        <div className="p-col-12 p-md-6 p-xl-12">
+                <div className="col-12 xl:col-4">
+                    <div className="grid">
+                        <div className="col-12 md:col-6 xl:col-12">
                             <div className="card statistics">
                                 <div className="card-header">
                                     <div className="card-title">
@@ -489,8 +489,8 @@ export const Dashboard = () => {
                                     </div>
                                     <p className="subtitle">8 May</p>
                                 </div>
-                                <div className="p-grid">
-                                    <div className="p-col-12 p-md-6">
+                                <div className="grid">
+                                    <div className="col-12 md:col-6">
                                         <div className="statistic-item">
                                             <div className="item-title">
                                                 <span>🐳</span>
@@ -499,7 +499,7 @@ export const Dashboard = () => {
                                             <h6>Uptime/year</h6>
                                         </div>
                                     </div>
-                                    <div className="p-col-12 p-md-6">
+                                    <div className="col-12 md:col-6">
                                         <div className="statistic-item">
                                             <div className="item-title">
                                                 <span>🖥 </span>
@@ -508,7 +508,7 @@ export const Dashboard = () => {
                                             <h6>Connected devices</h6>
                                         </div>
                                     </div>
-                                    <div className="p-col-12 p-md-6">
+                                    <div className="col-12 md:col-6">
                                         <div className="statistic-item">
                                             <div className="item-title">
                                                 <span>🎁 </span>
@@ -517,7 +517,7 @@ export const Dashboard = () => {
                                             <h6>Thanks messages received</h6>
                                         </div>
                                     </div>
-                                    <div className="p-col-12 p-md-6">
+                                    <div className="col-12 md:col-6">
                                         <div className="statistic-item">
                                             <div className="item-title">
                                                 <span>💵 </span>
@@ -529,7 +529,7 @@ export const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-col-12 p-md-6 p-xl-12">
+                        <div className="col-12 md:col-6 xl:col-12">
                             <div className="card stocks">
                                 <div className="card-header">
                                     <div className="card-title">
@@ -617,8 +617,13 @@ export const Dashboard = () => {
                     </div>
 
                 </div>
-            </div >
-        </div >
+            </div>
+        </div>
     )
-
 }
+
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(Dashboard, comparisonFn);

@@ -1,14 +1,14 @@
 import React from 'react';
 import AppCodeHighlight from '../AppCodeHighlight';
 
-export const Documentation = () => {
+const Documentation = () => {
 
     return (
-        <div className="p-grid">
-            <div className="p-col-12">
+        <div className="grid">
+            <div className="col-12">
                 <div className="card docs no-margin">
                     <h4>Current Version</h4>
-                    <p>React 17.x and PrimeReact 6.x</p>
+                    <p>React 17.x and PrimeReact 7.x</p>
 
                     <h4>Getting Started</h4>
                     <p>Freya is an application template for React, based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows
@@ -104,98 +104,98 @@ sass public/assets:public/assets --no-source-map
 {`
 const menu = [
     {
-        label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'
+        label: 'Dashboard', icon: 'pi pi-home', to: '/'
     },
     {
-        label: 'UI Kit', icon: 'pi pi-fw pi-star-o',
+        label: 'UI Kit', icon: 'pi pi-star',
         items: [
-            { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
-            { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
-            { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
-            { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/uikit/invalidstate' },
-            { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', className: 'rotated-icon' },
-            { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
-            { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
-            { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
-            { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/uikit/panel' },
-            { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/uikit/overlay' },
-            { label: 'Media', icon: "pi pi-fw pi-image", to: '/uikit/media' },
-            { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu' },
-            { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
-            { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
-            { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/chart' },
-            { label: 'Misc', icon: 'pi pi-fw pi-circle-off', to: '/uikit/misc' },
+            { label: 'Form Layout', icon: 'pi pi-id-card', to: '/uikit/formlayout' },
+            { label: 'Input', icon: 'pi pi-check-square', to: '/uikit/input' },
+            { label: 'Float Label', icon: 'pi pi-bookmark', to: '/uikit/floatlabel' },
+            { label: 'Invalid State', icon: 'pi pi-exclamation-circle', to: '/uikit/invalidstate' },
+            { label: 'Button', icon: 'pi pi-mobile', to: '/uikit/button', className: 'rotated-icon' },
+            { label: 'Table', icon: 'pi pi-table', to: '/uikit/table' },
+            { label: 'List', icon: 'pi pi-list', to: '/uikit/list' },
+            { label: 'Tree', icon: 'pi pi-share-alt', to: '/uikit/tree' },
+            { label: 'Panel', icon: 'pi pi-tablet', to: '/uikit/panel' },
+            { label: 'Overlay', icon: 'pi pi-clone', to: '/uikit/overlay' },
+            { label: 'Media', icon: "pi pi-image", to: '/uikit/media' },
+            { label: 'Menu', icon: 'pi pi-bars', to: '/uikit/menu' },
+            { label: 'Message', icon: 'pi pi-comment', to: '/uikit/message' },
+            { label: 'File', icon: 'pi pi-file', to: '/uikit/file' },
+            { label: 'Chart', icon: 'pi pi-chart-bar', to: '/uikit/chart' },
+            { label: 'Misc', icon: 'pi pi-circle-off', to: '/uikit/misc' },
+        ]
+    },
+    {
+        label: "PrimeBlocks", icon: "pi pi-building",
+        items: [
+            { label: "Free Blocks", icon: "pi pi-eye", to: "/uiblocks/blocks", badge: "NEW", badgeStyle: {width: '40px'} },
+            { label: "All Blocks", icon: "pi pi-globe", url: "https://www.primefaces.org/primeblocks-react", target: "_blank" }
         ]
     },
     {
         label: 'Utilities', icon: 'pi pi-fw pi-compass',
         items: [
-            { label: 'Display', icon: 'pi pi-fw pi-desktop', to: '/utilities/display' },
-            { label: 'Elevation', icon: 'pi pi-fw pi-external-link', to: '/utilities/elevation' },
-            { label: 'Flexbox', icon: 'pi pi-fw pi-directions', to: '/utilities/flexbox' },
-            { label: 'Icons', icon: 'pi pi-fw pi-search', to: '/utilities/icons' },
-            { label: 'Widgets', icon: 'pi pi-fw pi-star-o', to: '/utilities/widgets' },
-            { label: 'Grid System', icon: 'pi pi-fw pi-th-large', to: '/utilities/grid' },
-            { label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', to: '/utilities/spacing' },
-            { label: 'Typography', icon: 'pi pi-fw pi-align-center', to: '/utilities/typography' },
-            { label: 'Text', icon: 'pi pi-fw pi-pencil', to: '/utilities/text' },
+            { label: 'Icons', icon: 'pi pi-fw pi-prime', to: '/utilities/icons' },
+            { label: "PrimeFlex", icon: "pi pi-fw pi-desktop", url: "https://www.primefaces.org/primeflex", target: "_blank" }
         ]
     },
     {
-        label: 'Pages', icon: 'pi pi-fw pi-briefcase',
+        label: 'Pages', icon: 'pi pi-briefcase',
         items: [
-            { label: 'Crud', icon: 'pi pi-fw pi-pencil', to: '/pages/crud' },
-            { label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', to: '/pages/calendar' },
-            { label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/pages/timeline' },
-            { label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank' },
-            { label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login' },
-            { label: 'Invoice', icon: 'pi pi-fw pi-dollar', to: '/pages/invoice' },
-            { label: 'Help', icon: 'pi pi-fw pi-question-circle', to: '/pages/help' },
-            { label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error' },
-            { label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound' },
-            { label: 'Access Denied', icon: 'pi pi-fw pi-lock', to: '/access' },
-            { label: 'Empty Page', icon: 'pi pi-fw pi-circle-off', to: '/pages/empty' }
+            { label: 'Crud', icon: 'pi pi-pencil', to: '/pages/crud' },
+            { label: 'Calendar', icon: 'pi pi-calendar-plus', to: '/pages/calendar' },
+            { label: 'Timeline', icon: 'pi pi-calendar', to: '/pages/timeline' },
+            { label: 'Landing', icon: 'pi pi-globe', url: 'assets/pages/landing.html', target: '_blank' },
+            { label: 'Login', icon: 'pi pi-sign-in', to: '/login' },
+            { label: 'Invoice', icon: 'pi pi-dollar', to: '/pages/invoice' },
+            { label: 'Help', icon: 'pi pi-question-circle', to: '/pages/help' },
+            { label: 'Error', icon: 'pi pi-times-circle', to: '/error' },
+            { label: 'Not Found', icon: 'pi pi-exclamation-circle', to: '/notfound' },
+            { label: 'Access Denied', icon: 'pi pi-lock', to: '/access' },
+            { label: 'Empty Page', icon: 'pi pi-circle-off', to: '/pages/empty' }
         ]
     },
     {
-        label: 'Hierarchy', icon: 'pi pi-fw pi-align-left',
+        label: 'Hierarchy', icon: 'pi pi-align-left',
         items: [
             {
-                label: 'Submenu 1', icon: 'pi pi-fw pi-align-left',
+                label: 'Submenu 1', icon: 'pi pi-align-left',
                 items: [
                     {
-                        label: 'Submenu 1.1', icon: 'pi pi-fw pi-align-left',
+                        label: 'Submenu 1.1', icon: 'pi pi-align-left',
                         items: [
-                            { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-align-left' },
-                            { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-align-left' },
-                            { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-align-left' },
+                            { label: 'Submenu 1.1.1', icon: 'pi pi-align-left' },
+                            { label: 'Submenu 1.1.2', icon: 'pi pi-align-left' },
+                            { label: 'Submenu 1.1.3', icon: 'pi pi-align-left' },
                         ]
                     },
                     {
-                        label: 'Submenu 1.2', icon: 'pi pi-fw pi-align-left',
+                        label: 'Submenu 1.2', icon: 'pi pi-align-left',
                         items: [
-                            { label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-align-left' },
-                            { label: 'Submenu 1.2.2', icon: 'pi pi-fw pi-align-left' }
+                            { label: 'Submenu 1.2.1', icon: 'pi pi-align-left' },
+                            { label: 'Submenu 1.2.2', icon: 'pi pi-align-left' }
                         ]
                     },
                 ]
             },
             {
-                label: 'Submenu 2', icon: 'pi pi-fw pi-align-left',
+                label: 'Submenu 2', icon: 'pi pi-align-left',
                 items: [
                     {
-                        label: 'Submenu 2.1', icon: 'pi pi-fw pi-align-left',
+                        label: 'Submenu 2.1', icon: 'pi pi-align-left',
                         items: [
-                            { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-align-left' },
-                            { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-align-left' },
-                            { label: 'Submenu 2.1.3', icon: 'pi pi-fw pi-align-left' },
+                            { label: 'Submenu 2.1.1', icon: 'pi pi-align-left' },
+                            { label: 'Submenu 2.1.2', icon: 'pi pi-align-left' },
+                            { label: 'Submenu 2.1.3', icon: 'pi pi-align-left' },
                         ]
                     },
                     {
-                        label: 'Submenu 2.2', icon: 'pi pi-fw pi-align-left',
+                        label: 'Submenu 2.2', icon: 'pi pi-align-left',
                         items: [
-                            { label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-align-left' },
-                            { label: 'Submenu 2.2.2', icon: 'pi pi-fw pi-align-left' }
+                            { label: 'Submenu 2.2.1', icon: 'pi pi-align-left' },
+                            { label: 'Submenu 2.2.2', icon: 'pi pi-align-left' }
                         ]
                     },
                 ]
@@ -203,10 +203,10 @@ const menu = [
         ]
     },
     {
-        label: 'Start', icon: 'pi pi-fw pi-download',
+        label: 'Start', icon: 'pi pi-download',
         items: [
-            { label: 'Documentation', icon: 'pi pi-fw pi-question', to: '/start/documentation' },
-            { label: 'Buy Now', icon: 'pi pi-fw pi-shopping-cart', command: () => { window.location = "https://www.primefaces.org/store" } }
+            { label: 'Documentation', icon: 'pi pi-question', to: '/start/documentation' },
+            { label: 'Buy Now', icon: 'pi pi-shopping-cart', command: () => { window.location = "https://www.primefaces.org/store" } }
         ]
     }
 ];
@@ -608,7 +608,7 @@ $radiobuttonActiveHoverBorderColor:$primaryDarkerColor !default;
 $colorPickerPreviewWidth:2rem !default;
 $colorPickerPreviewHeight:2rem !default;
 $colorPickerBg:#323232 !default;
-$colorPickerBorderColor:#191919 !default;
+$colorPickerBorder:1px solid #191919 !default;
 $colorPickerHandleColor:$shade000 !default;
 
 //togglebutton
@@ -707,6 +707,7 @@ $inputSwitchSliderOnHoverBg:$primaryDarkColor !default;
 $inputSwitchHandleOnBg:$shade000 !default;
 
 //panel
+$panelHeaderBorderColor:$shade300 !default;
 $panelHeaderBorder:1px solid $shade300 !default;
 $panelHeaderBg:$shade100 !default;
 $panelHeaderTextColor:$shade700 !default;
@@ -718,6 +719,7 @@ $panelHeaderHoverBg:$shade200 !default;
 $panelHeaderHoverBorderColor:$shade300 !default;
 $panelHeaderTextHoverColor:$shade700 !default;
 
+$panelContentBorderColor: $shade300 !default;
 $panelContentBorder:1px solid $shade300 !default;
 $panelContentBg:$shade000 !default;
 $panelContentTextColor:$shade700 !default;
@@ -895,6 +897,7 @@ $pickListBreakpoint:769px !default;
 
 //schedule
 $fullCalendarEventBg:$primaryDarkColor !default;
+$fullCalendarEventBorderColor: $primaryDarkColor !default;
 $fullCalendarEventBorder:1px solid $primaryDarkColor !default;
 $fullCalendarEventTextColor:$primaryTextColor !default;
 
@@ -1157,6 +1160,42 @@ $skeletonAnimationBg:rgba(255,255,255,0.4);
 $splitterGutterBg:$shade100;
 $splitterGutterHandleBg:$shade300;
 
+//speeddial
+$speedDialButtonWidth: 4rem;
+$speedDialButtonHeight: 4rem;
+$speedDialButtonIconFontSize: 1.3rem;
+$speedDialActionWidth: 3rem;
+$speedDialActionHeight: 3rem;
+$speedDialActionBg: $shade700;
+$speedDialActionHoverBg: $shade800;
+$speedDialActionTextColor: #fff;
+$speedDialActionTextHoverColor: #fff;
+
+//dock
+$dockActionWidth: 4rem;
+$dockActionHeight: 4rem;
+$dockItemPadding: .5rem;
+$dockCurrentItemMargin: 1.5rem;
+$dockFirstItemsMargin: 1.3rem;
+$dockSecondItemsMargin: 0.9rem;
+$dockBg: rgba(255,255,255,.1);
+$dockBorder: 1px solid rgba(255,255,255,0.2);
+$dockPadding: .5rem .5rem;
+$dockBorderRadius: .5rem;
+
+//image
+$imageMaskBg:rgba(0,0,0,0.9) !default;
+$imagePreviewToolbarPadding:1rem !default;
+$imagePreviewIndicatorColor:#f8f9fa !default;
+$imagePreviewIndicatorBg:rgba(0,0,0,0.5) !default;
+$imagePreviewActionIconBg:transparent !default;
+$imagePreviewActionIconColor:#f8f9fa !default;
+$imagePreviewActionIconHoverBg:rgba(255,255,255,0.1) !default;
+$imagePreviewActionIconHoverColor:#f8f9fa !default;
+$imagePreviewActionIconWidth:3rem !default;
+$imagePreviewActionIconHeight:3rem !default;
+$imagePreviewActionIconFontSize:1.5rem !default;
+$imagePreviewActionIconBorderRadius:50% !default;
 
 :root {
     --surface-a:#{$shade000};
@@ -1174,18 +1213,37 @@ $splitterGutterHandleBg:$shade300;
     --primary-color-text:#{$primaryTextColor};
     --font-family:#{$fontFamily};
     --surface-0: #ffffff;
-    --surface-50: #FAFAFA;
-    --surface-100: #F5F5F5;
-    --surface-200: #EEEEEE;
-    --surface-300: #E0E0E0;
-    --surface-400: #BDBDBD;
-    --surface-500: #9E9E9E;
-    --surface-600: #757575;
-    --surface-700: #616161;
-    --surface-800: #424242;
-    --surface-900: #212121;
+    --surface-50: #f2f4f6;
+    --surface-100: #d9dbdd;
+    --surface-200: #c1c3c4;
+    --surface-300: #a9aaac;
+    --surface-400: #919293;
+    --surface-500: #797a7b;
+    --surface-600: #606162;
+    --surface-700: #484949;
+    --surface-800: #303031;
+    --surface-900: #181818;
+    --gray-50: #f2f4f6;
+    --gray-100: #d9dbdd;
+    --gray-200: #c1c3c4;
+    --gray-300: #a9aaac;
+    --gray-400: #919293;
+    --gray-500: #797a7b;
+    --gray-600: #606162;
+    --gray-700: #484949;
+    --gray-800: #303031;
+    --gray-900: #181818;
     --content-padding:#{$panelContentPadding};
     --inline-spacing:#{$inlineSpacing};
+    --border-radius:#{$borderRadius};
+    --surface-ground:#F2F4F6;
+    --surface-section:#ffffff;
+    --surface-card:#ffffff;
+    --surface-overlay:#ffffff;
+    --surface-border:#D4D6D9;
+    --surface-hover: #{$shade200};
+    --focus-ring: #{$focusShadow};
+    --maskbg: #{$maskBg};
 }
 `}
 </AppCodeHighlight>
@@ -1225,3 +1283,9 @@ $splitterGutterHandleBg:$shade300;
     </div>
     )
 }
+
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(Documentation, comparisonFn);

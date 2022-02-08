@@ -4,14 +4,14 @@ import { Button } from 'primereact/button';
 
 import { TabPanel, TabView } from 'primereact/tabview';
 
-export const Widgets = () => {
+const Widgets = () => {
 
     return (
         <>
             <h4>Reusable CSS widgets for your applications.</h4>
             <div className="layout-widgets">
-                <div className="p-grid">
-                    <div className="p-col-12 p-md-6 p-lg-3">
+                <div className="grid">
+                    <div className="col-12 md:col-6 lg:col-3">
                         <div className="card overview-box white">
                             <div className="overview-info">
                                 <h6>Graphics</h6>
@@ -20,7 +20,7 @@ export const Widgets = () => {
                             <i className="pi pi-image"></i>
                         </div>
                     </div>
-                    <div className="p-col-12 p-md-6 p-lg-3">
+                    <div className="col-12 md:col-6 lg:col-3">
                         <div className="card overview-box blue">
                             <div className="overview-info">
                                 <h6>New users (Today)</h6>
@@ -29,7 +29,7 @@ export const Widgets = () => {
                             <i className="pi pi-users"></i>
                         </div>
                     </div>
-                    <div className="p-col-12 p-md-6 p-lg-3">
+                    <div className="col-12 md:col-6 lg:col-3">
                         <div className="card overview-box gray">
                             <div className="overview-info">
                                 <h6>Uptime</h6>
@@ -38,7 +38,7 @@ export const Widgets = () => {
                             <i className="pi pi-globe"></i>
                         </div>
                     </div>
-                    <div className="p-col-12 p-md-6 p-lg-3">
+                    <div className="col-12 md:col-6 lg:col-3">
                         <div className="card overview-box darkgray">
                             <div className="overview-info">
                                 <h6>Cloud users</h6>
@@ -47,9 +47,9 @@ export const Widgets = () => {
                             <i className="pi pi-cloud"></i>
                         </div>
                     </div>
-                    <div className="p-col-12 p-lg-6">
-                        <div className="p-grid">
-                            <div className="p-col-12">
+                    <div className="col-12 lg:col-6">
+                        <div className="grid">
+                            <div className="col-12">
                                 <div className="card statistics">
                                     <div className="card-header">
                                         <div className="card-title">
@@ -58,8 +58,8 @@ export const Widgets = () => {
                                         </div>
                                         <p className="subtitle">8 May</p>
                                     </div>
-                                    <div className="p-grid">
-                                        <div className="p-col-12 p-md-6">
+                                    <div className="grid">
+                                        <div className="col-12 md:col-6">
                                             <div className="statistic-item">
                                                 <div className="item-title">
                                                     <span>🐳</span>
@@ -68,7 +68,7 @@ export const Widgets = () => {
                                                 <h6>Uptime/year</h6>
                                             </div>
                                         </div>
-                                        <div className="p-col-12 p-md-6">
+                                        <div className="col-12 md:col-6">
                                             <div className="statistic-item">
                                                 <div className="item-title">
                                                     <span>🖥 </span>
@@ -77,7 +77,7 @@ export const Widgets = () => {
                                                 <h6>Connected devices</h6>
                                             </div>
                                         </div>
-                                        <div className="p-col-12 p-md-6">
+                                        <div className="col-12 md:col-6">
                                             <div className="statistic-item">
                                                 <div className="item-title">
                                                     <span>🎁 </span>
@@ -86,7 +86,7 @@ export const Widgets = () => {
                                                 <h6>Thanks messages received</h6>
                                             </div>
                                         </div>
-                                        <div className="p-col-12 p-md-6">
+                                        <div className="col-12 md:col-6">
                                             <div className="statistic-item">
                                                 <div className="item-title">
                                                     <span>💵 </span>
@@ -98,7 +98,7 @@ export const Widgets = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="p-col-12">
+                            <div className="col-12">
                                 <div className="card team">
                                     <div className="card-header">
                                         <div className="card-title">
@@ -120,7 +120,7 @@ export const Widgets = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="p-col-12">
+                            <div className="col-12">
                                 <div className="notification">
                                     <h6>👋  Hello! Welcome to Hit! Before start please complete your profile to know you better. <button className="p-link">Profile settings <i className="pi pi-arrow-up"></i></button></h6>
                                 </div>
@@ -128,7 +128,7 @@ export const Widgets = () => {
                         </div>
                     </div>
 
-                    <div className="p-col-12 p-lg-6">
+                    <div className="col-12 lg:col-6">
                         <div className="card stocks">
                             <div className="card-header">
                                 <div className="card-title">
@@ -214,7 +214,7 @@ export const Widgets = () => {
                         </div>
                     </div>
 
-                    <div className="p-col-12  p-md-3">
+                    <div className="col-12 md:col-3">
                         <div className="card map">
                             <img src="assets/demo/images/dashboard/asset-map.png" alt="freya-layout" />
                             <div className="map-content">
@@ -232,7 +232,7 @@ export const Widgets = () => {
                         </div>
                     </div>
 
-                    <div className="p-col-12  p-md-6">
+                    <div className="col-12 md:col-6">
                         <div className="card chat">
                             <div className="card-header">
                                 <div className="card-title">
@@ -419,7 +419,7 @@ export const Widgets = () => {
                         </div>
                     </div>
 
-                    <div className="p-col-12  p-md-3">
+                    <div className="col-12 md:col-3">
                         <div className="card image-card">
                             <span className="ui-badge">3</span>
                             <img src="assets/demo/images/dashboard/asset-image.jpg" alt="freya-layout" />
@@ -431,7 +431,7 @@ export const Widgets = () => {
                         </div>
                     </div>
 
-                    <div className="p-col-12 p-lg-6">
+                    <div className="col-12 lg:col-6">
                         <div className="card timeline">
                             <div className="card-header">
                                 <div className="card-title">
@@ -494,7 +494,7 @@ export const Widgets = () => {
                         </div>
                     </div>
 
-                    <div className="p-col-12 p-lg-6">
+                    <div className="col-12 lg:col-6">
                         <div className="card schedule">
                             <div className="card-header">
                                 <div className="card-title">
@@ -538,3 +538,9 @@ export const Widgets = () => {
         </>
     )
 }
+
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(Widgets, comparisonFn);

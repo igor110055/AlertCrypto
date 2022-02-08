@@ -9,10 +9,10 @@ const AppFooter = () => {
 
     return (
         <div className="layout-footer">
-            <div className="p-grid">
-                <div className="p-col-12  p-lg-4">
-                    <div className="p-grid">
-                        <div className="p-col-6 ">
+            <div className="grid">
+                <div className="col-12  lg:col-4">
+                    <div className="grid">
+                        <div className="col-6 ">
                             <span className="footer-menutitle">SITE MAP</span>
                             <ul>
                                 <li><button className="p-link" onClick={() => history.push('/')}>Dashboard</button></li>
@@ -21,7 +21,7 @@ const AppFooter = () => {
                                 <li><button className="p-link" onClick={() => history.push('/pages/help')}>Help</button></li>
                             </ul>
                         </div>
-                        <div className="p-col-6">
+                        <div className="col-6">
                             <span className="footer-menutitle"></span>
                             <ul>
                                 <li><button className="p-link" onClick={() => history.push('/pages/calendar')}>Calendar</button></li>
@@ -33,7 +33,7 @@ const AppFooter = () => {
                     </div>
 
                 </div>
-                <div className="p-col-12 p-md-6 p-lg-3">
+                <div className="col-12 md:col-6 lg:col-3">
                     <span className="footer-menutitle">CONTACT US</span>
                     <ul>
                         <li>(415) 931-1624 794</li>
@@ -41,7 +41,7 @@ const AppFooter = () => {
                         <li>California(CA), 94102</li>
                     </ul>
                 </div>
-                <div className="p-col-12 p-md-6 p-lg-5">
+                <div className="col-12 md:col-6 lg:col-5">
                     <span className="footer-menutitle">NEWSLETTER</span>
                     <span className="footer-subtitle">Join our newsletter to get notification about the new features.</span>
                     <div className="newsletter-input">
@@ -49,7 +49,7 @@ const AppFooter = () => {
                         <Button className="newsletter-button p-button-secondary" type="button" label="Join" />
                     </div>
                 </div>
-                <div className="p-col-12">
+                <div className="col-12">
                     <div className="footer-bottom">
                         <h4>freya</h4>
                         <h6>Copyright Ⓒ PrimeTek Informatics</h6>

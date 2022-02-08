@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'primereact/button';
 
-export const Invoice = () => {
+const Invoice = () => {
 
     const print = () => {
         window.print();
@@ -11,8 +11,8 @@ export const Invoice = () => {
         <div>
         <Button label="Print" icon="pi pi-print" onClick={print} style={{display: 'block', marginBottom: '20px', marginLeft: '6px'}}></Button>
 
-        <div className="p-grid">
-            <div className="p-col">
+        <div className="grid">
+            <div className="col">
                 <div className="card">
                     <div id="invoice-content">
                         <div className="invoice">
@@ -102,3 +102,9 @@ export const Invoice = () => {
     </div >
     );
 }
+
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(Invoice, comparisonFn);
