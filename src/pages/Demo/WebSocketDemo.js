@@ -57,7 +57,7 @@ const WebSocketDemo = () => {
             <div className="col-12">
                 <div className="card">
                     <h5>webSocketDemo</h5>
-                    <h1 ref={price_ref}>{checkChangePrice()}</h1>
+                    <h1 ref={price_ref}> {checkChangePrice()}</h1>
                 </div>
             </div>
         </div>
