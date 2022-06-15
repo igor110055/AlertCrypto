@@ -37,6 +37,9 @@ import BlocksDemo from './components/BlocksDemo';
 import PrimeReact from 'primereact/api';
 import { Tooltip } from "primereact/tooltip";
 
+// MY PAGE
+import WebSocketDemo from './pages/Demo/WebSocketDemo';
+
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
@@ -471,6 +474,10 @@ const App = (props) => {
                     <Route path="/pages/empty" component={EmptyPage} />
                     <Route path="/pages/timeline" component={TimelineDemo} />
                     <Route path="/uiblocks/blocks" component={BlocksDemo} />
+
+                    {/* ***** MY PAGE ***** */}
+                    <Route path="/pages/webSocketDemo" component={WebSocketDemo} />
+
                 </div>
 
                 <AppFooter />
