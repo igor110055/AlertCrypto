@@ -34,10 +34,6 @@ import Help from './pages/Help';
 import EmptyPage from './pages/EmptyPage';
 import BlocksDemo from './components/BlocksDemo';
 
-// MY PAGE
-import WebSocketDemo from './pages/Demo/WebSocketDemo';
-
-
 import PrimeReact from 'primereact/api';
 import { Tooltip } from "primereact/tooltip";
 
@@ -475,9 +471,6 @@ const App = (props) => {
                     <Route path="/pages/empty" component={EmptyPage} />
                     <Route path="/pages/timeline" component={TimelineDemo} />
                     <Route path="/uiblocks/blocks" component={BlocksDemo} />
-
-                    {/* ***** MY PAGE ***** */}
-                    <Route path="/pages/webSocketDemo" component={WebSocketDemo} />
                 </div>
 
                 <AppFooter />
