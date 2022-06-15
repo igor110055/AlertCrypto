@@ -1,12 +1,11 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
-import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 
 
 const WebSocketDemo = () => {
     //Public API that will echo messages sent to it back to the client
     //https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md#general-wss-information
-    const [socketUrl, setSocketUrl] = useState('wss://stream.binance.com:9443/ws/btcusdt@depth20@100ms');
+    const [socketUrl, setSocketUrl] = useState('wss://stream.binance.com:9443/ws/btcusdt@depth20@1000ms');
     const { lastMessage } = useWebSocket(socketUrl);
     const [payload, setPayload] = useState({
         "lastUpdateId": 160,  // Last update ID
@@ -43,49 +42,27 @@ const WebSocketDemo = () => {
         var current_price = payload.asks[0][0];
         if (parseFloat(current_price).toFixed(2) > parseFloat(price_ref.current.innerText).toFixed(2)) {
             return (
-                <h1 ref={price_ref} style={{ color: 'green' }}> {parseFloat(current_price).toFixed(1)}</h1>
+                <div style={{ display: 'flex' }}>
+                    <h1 ref={price_ref} style={{ color: 'green' }}> {parseFloat(current_price).toFixed(1)}</h1>
+                    <i className="pi pi-arrow-circle-up" style={{ color: 'green', 'fontSize': '25px', marginTop: '9px', marginLeft: '5px' }}></i>
+                </div>
             )
         } else {
             return (
-                <h1 ref={price_ref} style={{ color: 'red' }}> {parseFloat(current_price).toFixed(1)}</h1>
+                <div style={{ display: 'flex' }}>
+                    <h1 ref={price_ref} style={{ color: 'red' }}> {parseFloat(current_price).toFixed(1)}</h1>
+                    <i className="pi pi-arrow-circle-down" style={{ color: 'red', 'fontSize': '25px', marginTop: '9px', marginLeft: '5px' }}></i>
+                </div>
             )
         }
     }
 
-
     return (
-        <div className="grid">
-            <div className="col-12">
-                <div className="card">
-                    <h5>webSocketDemo</h5>
-                    <h1 ref={price_ref}> {checkChangePrice()}</h1>
-                    <TradingViewWidget
-                        symbol="BINANCE:BTCUSDTPERP"
-                        theme={"dark"}
-                        locale="th"
-                        interval={5}
-                        allow_symbol_change={true}
-                        toolbar_bg={"#f1f3f6"}
-                        style={"1"}
-                        container_id={"technical-analysis-chart-demo"}
-                        hide_side_toolbar={false}
-                        studies={["RSI@tv-basicstudies", "Stochastic@tv-basicstudies"]}
-                        enable_publishing={false}
-                        withdateranges={true}
-                        show_popup_button={true}
-                        popup_width={1000}
-                        popup_height={650}
-                    />
-                    <br />
-                </div>
-            </div>
+        <div>
+            <h1 ref={price_ref}> {checkChangePrice()}</h1>
         </div>
     );
 
 }
 
-const comparisonFn = function (prevProps, nextProps) {
-    return prevProps.location.pathname === nextProps.location.pathname;
-};
-
-export default React.memo(WebSocketDemo, comparisonFn); 
+export default React.memo(WebSocketDemo); 

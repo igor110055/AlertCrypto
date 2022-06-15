@@ -38,7 +38,9 @@ import PrimeReact from 'primereact/api';
 import { Tooltip } from "primereact/tooltip";
 
 // MY PAGE
+import Apps from './pages/Demo/Apps'
 import WebSocketDemo from './pages/Demo/WebSocketDemo';
+import TradingView from './pages/Demo/TradingView';
 
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -476,7 +478,9 @@ const App = (props) => {
                     <Route path="/uiblocks/blocks" component={BlocksDemo} />
 
                     {/* ***** MY PAGE ***** */}
+                    <Route path="/apps" component={Apps} />
                     <Route path="/pages/webSocketDemo" component={WebSocketDemo} />
+                    <Route path="/pages/trade" component={TradingView} />
 
                 </div>
 

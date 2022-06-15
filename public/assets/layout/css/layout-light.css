@@ -2711,6 +2711,14 @@ a, button {
   background: linear-gradient(90deg, #FFB340 0%, #FFA740 100%);
   color: #FFFFFF;
 }
+.overview-box.red {
+  background: red;
+  color: #FFFFFF;
+}
+.overview-box.green {
+  background: green;
+  color: #FFFFFF;
+}
 
 .timeline {
   padding-right: 4px;
