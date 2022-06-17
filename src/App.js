@@ -54,7 +54,7 @@ const App = (props) => {
     const [sidebarStatic, setSidebarStatic] = useState(false);
     const [sidebarActive, setSidebarActive] = useState(false);
     const [menuActive, setMenuActive] = useState(false);
-    const [menuMode, setMenuMode] = useState('sidebar');
+    const [menuMode, setMenuMode] = useState('horizontal');
     const [configActive, setConfigActive] = useState(false);
     const [inputStyle, setInputStyle] = useState('filled');
     const [ripple, setRipple] = useState(false);

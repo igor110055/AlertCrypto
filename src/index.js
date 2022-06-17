@@ -3,11 +3,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom'
 import AppWrapper from './AppWrapper';
+import { WebSocketProvider } from './context/context'
 //import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 	<HashRouter>
-		<AppWrapper></AppWrapper>
+		<WebSocketProvider>
+			<AppWrapper></AppWrapper>
+		</WebSocketProvider>
 	</HashRouter>,
 	document.getElementById('root')
 );
